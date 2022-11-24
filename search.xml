@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/11/24/hello-world/</url>
+    <title>When You Are Old</title>
+    <url>/2022/11/24/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</url>
+    <content><![CDATA[<h3 id="When-you-are-old"><a href="#When-you-are-old" class="headerlink" title="When you are old"></a>When you are old</h3><p><strong>When you are old and grey and full of sleep,</strong></p>
+<p><strong>And nodding by the fire,take down this book,</strong></p>
+<p><strong>And slowly read,and dream of the soft look,</strong></p>
+<p><strong>Your eyes had once,and of their shadows deep;</strong></p>
+<p><strong>How many loved your moments of glad grace,</strong></p>
+<p><strong>And loved your beauty with love false or true,</strong></p>
+<p><strong>But one man loved the pilgrim soul in you,</strong></p>
+<p><strong>And loved the sorrows of your changing face;</strong></p>
+<p><strong>And bending down beside the glowing bars,</strong></p>
+<p><strong>Murmur,a little sadly,how love fled,</strong></p>
+<p><strong>And paced upon the mountains overhead,</strong></p>
+<p><strong>And hid his face amid a crowd of stars.</strong></p>
+<p>​    </p>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Quick Start</title>
+    <url>/2022/11/24/Quick%20Start/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
@@ -16,23 +40,9 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
 ]]></content>
-  </entry>
-  <entry>
-    <title>开博大吉</title>
-    <url>/2022/11/24/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</url>
-    <content><![CDATA[<p>java</p>
-<p>大数据</p>
-<p>python </p>
-<p>javascript</p>
-<p>数据结构</p>
-]]></content>
-      <categories>
-        <category>life</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
   </entry>
   <entry>
     <title>排序算法</title>
@@ -90,10 +100,5 @@
       <tags>
         <tag>排序算法</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>第二篇博客</title>
-    <url>/2022/11/24/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
