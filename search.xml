@@ -43,7 +43,7 @@
 <p><strong>交换型：快速排序、冒泡排序</strong></p>
 <p><strong>分治型：归并排序</strong></p>
 </blockquote>
-<p><img src="/assets/sort.png" alt="sort"></p>
+<p><img src="/2022/11/24/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/sort.png" alt="sort"></p>
 <h1 id="（一）快速排序"><a href="#（一）快速排序" class="headerlink" title="（一）快速排序"></a>（一）快速排序</h1><blockquote>
 <p>版本一</p>
 </blockquote>
