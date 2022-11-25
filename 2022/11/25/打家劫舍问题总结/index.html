@@ -16,18 +16,18 @@
   <meta name="author" content="Koiman Lam">
   <meta name="keywords" content="">
   
-    <meta name="description" content="打家劫舍问题综合lc 198 打家劫舍123456789101112public int rob(int[] nums) &amp;#123;    &#x2F;&#x2F; f[i]表示前i个房子的最大价值    if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0) return 0;    int n &#x3D; nums.length;    int[] f &#x3D; new int[n + 1];    f[">
+    <meta name="description" content="打家劫舍问题总结lc 198 打家劫舍123456789101112public int rob(int[] nums) &amp;#123;    &#x2F;&#x2F; f[i]表示前i个房子的最大价值    if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0) return 0;    int n &#x3D; nums.length;    int[] f &#x3D; new int[n + 1];    f[">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打家劫舍问题总结">
 <meta property="og:url" content="http://example.com/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="打家劫舍问题综合lc 198 打家劫舍123456789101112public int rob(int[] nums) &amp;#123;    &#x2F;&#x2F; f[i]表示前i个房子的最大价值    if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0) return 0;    int n &#x3D; nums.length;    int[] f &#x3D; new int[n + 1];    f[">
+<meta property="og:description" content="打家劫舍问题总结lc 198 打家劫舍123456789101112public int rob(int[] nums) &amp;#123;    &#x2F;&#x2F; f[i]表示前i个房子的最大价值    if (nums &#x3D;&#x3D; null || nums.length &#x3D;&#x3D; 0) return 0;    int n &#x3D; nums.length;    int[] f &#x3D; new int[n + 1];    f[">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-25T05:03:52.000Z">
-<meta property="article:modified_time" content="2022-11-25T05:05:35.985Z">
+<meta property="article:modified_time" content="2022-11-25T05:06:35.084Z">
 <meta property="article:author" content="Koiman Lam">
 <meta property="article:tag" content="动态规划">
-<meta property="article:tag" content="打家劫舍问题综合">
+<meta property="article:tag" content="打家劫舍问题总结">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -274,7 +274,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="打家劫舍问题综合"><a href="#打家劫舍问题综合" class="headerlink" title="打家劫舍问题综合"></a>打家劫舍问题综合</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -318,7 +318,7 @@
       
         <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>
       
-        <a href="/tags/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E7%BB%BC%E5%90%88/">#打家劫舍问题综合</a>
+        <a href="/tags/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">#打家劫舍问题总结</a>
       
     </div>
   
@@ -374,6 +374,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/11/25/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="背包问题总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">背包问题总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
