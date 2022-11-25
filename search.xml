@@ -1,52 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>二分法模板</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
+    <title>Quick Start</title>
+    <url>/2022/11/24/Quick%20Start/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>算法模板</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-        <tag>二分法</tag>
-      </tags>
   </entry>
   <entry>
-    <title>二叉树类型</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
-<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
-<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
-<ul>
-<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
-<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
-<li>它的左、右子树也分别为二叉排序树</li>
-</ul>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
-<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
-<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+    <title>When You Are Old</title>
+    <url>/2022/11/24/When%20you%20are%20old/</url>
+    <content><![CDATA[<center>
+    <h1>
+        When you are old
+    </h1>
+</center>
 
-]]></content>
+
+
+<center>
+    <strong>
+        When you are old and grey and full of sleep,
+        <br><br>
+        And nodding by the fire,take down this book,
+        <br><br>
+        And slowly read,and dream of the soft look,
+        <br><br>
+        Your eyes had once,and of their shadows deep;
+        <br><br>
+        How many loved your moments of glad grace,
+        <br><br>
+        And loved your beauty with love false or true,
+        <br><br>
+        But one man loved the pilgrim soul in you,
+        <br><br>
+        And loved the sorrows of your changing face;
+        <br><br>
+        And bending down beside the glowing bars,
+        <br><br>
+        Murmur,a little sadly,how love fled,
+        <br><br>
+        And paced upon the mountains overhead,
+        <br><br>
+        And hid his face amid a crowd of stars.
+    </strong>
+
+
+
+<hr>
+<p>​    </p>
+</center>]]></content>
       <categories>
-        <category>数据结构</category>
-        <category>二叉树</category>
+        <category>literature</category>
       </categories>
       <tags>
-        <tag>二叉树</tag>
-        <tag>数据结构</tag>
-        <tag>满二叉树</tag>
-        <tag>平衡二叉树</tag>
-        <tag>二叉搜索树</tag>
-        <tag>完全二叉树</tag>
+        <tag>blog</tag>
+        <tag>English</tag>
+        <tag>poetry</tag>
+        <tag>literature</tag>
       </tags>
   </entry>
   <entry>
@@ -115,24 +139,53 @@
       </tags>
   </entry>
   <entry>
-    <title>Quick Start</title>
-    <url>/2022/11/24/Quick%20Start/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+    <title>二分法模板</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>算法模板</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>二分法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二叉树类型</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
+<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
+<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
+<li>它的左、右子树也分别为二叉排序树</li>
+</ul>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
+<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
+<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>数据结构</tag>
+        <tag>满二叉树</tag>
+        <tag>平衡二叉树</tag>
+        <tag>二叉搜索树</tag>
+        <tag>完全二叉树</tag>
+      </tags>
   </entry>
   <entry>
     <title>单调栈问题总结</title>
@@ -155,56 +208,46 @@
       </tags>
   </entry>
   <entry>
-    <title>When You Are Old</title>
-    <url>/2022/11/24/When%20you%20are%20old/</url>
-    <content><![CDATA[<center>
-    <h1>
-        When you are old
-    </h1>
-</center>
+    <title>回文串问题总结</title>
+    <url>/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h3 id="回文串总结"><a href="#回文串总结" class="headerlink" title="回文串总结"></a>回文串总结</h3><h4 id="1、最长回文串"><a href="#1、最长回文串" class="headerlink" title="1、最长回文串"></a>1、最长回文串</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">409.</span> 最长回文串 (构造最长的回文串长度)<br>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。<br>在构造过程中，请注意区分大小写。比如 <span class="hljs-string">&quot;Aa&quot;</span> 不能当做一个回文字符串。<br>    <br>输入:<br><span class="hljs-string">&quot;abccccdd&quot;</span><br>输出:<br><span class="hljs-number">7</span><br>解释:<br>我们可以构造的最长的回文串是<span class="hljs-string">&quot;dccaccd&quot;</span>, 它的长度是 <span class="hljs-number">7</span>。<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">longestPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>    <span class="hljs-type">char</span>[] str = s.toCharArray();<br>    <span class="hljs-type">int</span>[] mp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">128</span>];<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; str.length; i ++ ) &#123;<br>        mp[str[i]]++;<br>    &#125;<br><br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> cnt : mp) &#123;<br>        res += cnt / <span class="hljs-number">2</span> * <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (cnt % <span class="hljs-number">2</span> == <span class="hljs-number">1</span> &amp;&amp; res % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) &#123;<br>            res++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<center>
-    <strong>
-        When you are old and grey and full of sleep,
-        <br><br>
-        And nodding by the fire,take down this book,
-        <br><br>
-        And slowly read,and dream of the soft look,
-        <br><br>
-        Your eyes had once,and of their shadows deep;
-        <br><br>
-        How many loved your moments of glad grace,
-        <br><br>
-        And loved your beauty with love false or true,
-        <br><br>
-        But one man loved the pilgrim soul in you,
-        <br><br>
-        And loved the sorrows of your changing face;
-        <br><br>
-        And bending down beside the glowing bars,
-        <br><br>
-        Murmur,a little sadly,how love fled,
-        <br><br>
-        And paced upon the mountains overhead,
-        <br><br>
-        And hid his face amid a crowd of stars.
-    </strong>
+<h4 id="2、最长回文子串"><a href="#2、最长回文子串" class="headerlink" title="2、最长回文子串"></a>2、最长回文子串</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">5.</span> 最长回文子串（回文子串）<br>给你一个字符串 s，找到 s 中最长的回文子串。<br><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">longestPalindrome</span><span class="hljs-params">(String ss)</span> &#123;<br>    <span class="hljs-type">char</span>[] s = ss.toCharArray();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> s.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; mid &lt; n; mid ++ ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> mid;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> mid;<br>        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; n &amp;&amp; s[i] == s[j]) &#123;<br>            <span class="hljs-keyword">if</span> (j - i + <span class="hljs-number">1</span> &gt; len) &#123;<br>                len = j - i + <span class="hljs-number">1</span>;<br>                x = i;<br>                y = j;<br>            &#125;<br>            i--;<br>            j++;<br>        &#125;<br>        i = mid - <span class="hljs-number">1</span>;<br>        j = mid;<br>        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; n &amp;&amp; s[i] == s[j]) &#123;<br>            <span class="hljs-keyword">if</span> (j - i + <span class="hljs-number">1</span> &gt; len) &#123;<br>                len = j - i + <span class="hljs-number">1</span>;<br>                x = i;<br>                y = j;<br>            &#125;<br>            i--;<br>            j++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ss.substring(x, y + <span class="hljs-number">1</span>);<br>    <br>    <span class="hljs-comment">// 方式一</span><br>        <span class="hljs-comment">// char[] str = s.toCharArray();</span><br>        <span class="hljs-comment">// boolean[][] f = new boolean[str.length][str.length];</span><br>        <span class="hljs-comment">// for (boolean[] b : f) &#123;</span><br>        <span class="hljs-comment">//     Arrays.fill(b, false);</span><br>        <span class="hljs-comment">// &#125;</span><br><br>        <span class="hljs-comment">// int len = 1;</span><br>        <span class="hljs-comment">// int x = 0;</span><br>        <span class="hljs-comment">// int y = 0;</span><br>        <span class="hljs-comment">// for (int j = 0; j &lt; str.length; j ++ ) &#123;</span><br>        <span class="hljs-comment">//     for (int i = 0; i &lt;= j; i ++ ) &#123;</span><br>        <span class="hljs-comment">//         if (str[i] == str[j] &amp;&amp; (j - i &lt;= 1 || f[i + 1][j - 1] == true)) &#123;</span><br>        <span class="hljs-comment">//             f[i][j] = true;</span><br>        <span class="hljs-comment">//             if (j - i + 1 &gt; len) &#123;</span><br>        <span class="hljs-comment">//                 len = j - i + 1;</span><br>        <span class="hljs-comment">//                 x = i;</span><br>        <span class="hljs-comment">//                 y = j;</span><br>        <span class="hljs-comment">//             &#125;</span><br>        <span class="hljs-comment">//         &#125;</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// return s.substring(x, y + 1);</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<hr>
-<p>​    </p>
-</center>]]></content>
+<h4 id="3、回文串数目"><a href="#3、回文串数目" class="headerlink" title="3、回文串数目"></a>3、回文串数目</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">647.</span> 回文子串（求回文串数目）<br>给你一个字符串 s ，请你统计并返回这个字符串中 回文子串 的数目。<br>回文字符串 是正着读和倒过来读一样的字符串。<br>子字符串 是字符串中的由连续字符组成的一个序列。<br>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countSubstrings</span><span class="hljs-params">(String s)</span> &#123;<br>    <span class="hljs-comment">// 方式一</span><br>    <span class="hljs-comment">// int res = 0;</span><br>    <span class="hljs-comment">// char[] str = s.toCharArray();</span><br>    <span class="hljs-comment">// for (int mid = 0; mid &lt; str.length; mid ++ ) &#123;</span><br>    <span class="hljs-comment">//     int i = mid;</span><br>    <span class="hljs-comment">//     int j = mid;</span><br>    <span class="hljs-comment">//     while (i &gt;= 0 &amp;&amp; j &lt; str.length &amp;&amp; str[i] == str[j]) &#123;</span><br>    <span class="hljs-comment">//         i--;</span><br>    <span class="hljs-comment">//         j++;</span><br>    <span class="hljs-comment">//         res++;</span><br>    <span class="hljs-comment">//     &#125;</span><br>    <span class="hljs-comment">//     i = mid - 1;</span><br>    <span class="hljs-comment">//     j = mid;</span><br>    <span class="hljs-comment">//     while (i &gt;= 0 &amp;&amp; j &lt; str.length &amp;&amp; str[i] == str[j]) &#123;</span><br>    <span class="hljs-comment">//         i--;</span><br>    <span class="hljs-comment">//         j++;</span><br>    <span class="hljs-comment">//         res++;</span><br>    <span class="hljs-comment">//     &#125;</span><br>    <span class="hljs-comment">// &#125;</span><br>    <span class="hljs-comment">// return res;</span><br><br>    <span class="hljs-comment">// 方式二</span><br>    <span class="hljs-type">char</span>[] str = s.toCharArray();<br>    <span class="hljs-type">boolean</span>[][] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[str.length][str.length];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">boolean</span>[] b : f) &#123;<br>        Arrays.fill(b, <span class="hljs-literal">false</span>);<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; str.length; j ++ ) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;= j; i ++ ) &#123;<br>            <span class="hljs-keyword">if</span> (str[i] == str[j] &amp;&amp; (j - i &lt;= <span class="hljs-number">1</span> || f[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] == <span class="hljs-literal">true</span>)) &#123;<br>                f[i][j] = <span class="hljs-literal">true</span>;<br>                res++;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-        <category>literature</category>
+        <category>刷题相关</category>
       </categories>
       <tags>
-        <tag>blog</tag>
-        <tag>English</tag>
-        <tag>poetry</tag>
-        <tag>literature</tag>
+        <tag>动态规划</tag>
+        <tag>回文串总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打家劫舍问题总结</title>
+    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>打家劫舍问题总结</tag>
       </tags>
   </entry>
   <entry>
@@ -278,55 +321,6 @@
       <tags>
         <tag>c++</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>打家劫舍问题总结</title>
-    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题相关</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>打家劫舍问题总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回文串问题总结</title>
-    <url>/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h3 id="回文串总结"><a href="#回文串总结" class="headerlink" title="回文串总结"></a>回文串总结</h3><h4 id="1、最长回文串"><a href="#1、最长回文串" class="headerlink" title="1、最长回文串"></a>1、最长回文串</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">409.</span> 最长回文串 (构造最长的回文串长度)<br>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。<br>在构造过程中，请注意区分大小写。比如 <span class="hljs-string">&quot;Aa&quot;</span> 不能当做一个回文字符串。<br>    <br>输入:<br><span class="hljs-string">&quot;abccccdd&quot;</span><br>输出:<br><span class="hljs-number">7</span><br>解释:<br>我们可以构造的最长的回文串是<span class="hljs-string">&quot;dccaccd&quot;</span>, 它的长度是 <span class="hljs-number">7</span>。<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">longestPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>    <span class="hljs-type">char</span>[] str = s.toCharArray();<br>    <span class="hljs-type">int</span>[] mp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">128</span>];<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; str.length; i ++ ) &#123;<br>        mp[str[i]]++;<br>    &#125;<br><br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> cnt : mp) &#123;<br>        res += cnt / <span class="hljs-number">2</span> * <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span> (cnt % <span class="hljs-number">2</span> == <span class="hljs-number">1</span> &amp;&amp; res % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) &#123;<br>            res++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、最长回文子串"><a href="#2、最长回文子串" class="headerlink" title="2、最长回文子串"></a>2、最长回文子串</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">5.</span> 最长回文子串（回文子串）<br>给你一个字符串 s，找到 s 中最长的回文子串。<br><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">longestPalindrome</span><span class="hljs-params">(String ss)</span> &#123;<br>    <span class="hljs-type">char</span>[] s = ss.toCharArray();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> s.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; mid &lt; n; mid ++ ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> mid;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> mid;<br>        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; n &amp;&amp; s[i] == s[j]) &#123;<br>            <span class="hljs-keyword">if</span> (j - i + <span class="hljs-number">1</span> &gt; len) &#123;<br>                len = j - i + <span class="hljs-number">1</span>;<br>                x = i;<br>                y = j;<br>            &#125;<br>            i--;<br>            j++;<br>        &#125;<br>        i = mid - <span class="hljs-number">1</span>;<br>        j = mid;<br>        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; n &amp;&amp; s[i] == s[j]) &#123;<br>            <span class="hljs-keyword">if</span> (j - i + <span class="hljs-number">1</span> &gt; len) &#123;<br>                len = j - i + <span class="hljs-number">1</span>;<br>                x = i;<br>                y = j;<br>            &#125;<br>            i--;<br>            j++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ss.substring(x, y + <span class="hljs-number">1</span>);<br>    <br>    <span class="hljs-comment">// 方式一</span><br>        <span class="hljs-comment">// char[] str = s.toCharArray();</span><br>        <span class="hljs-comment">// boolean[][] f = new boolean[str.length][str.length];</span><br>        <span class="hljs-comment">// for (boolean[] b : f) &#123;</span><br>        <span class="hljs-comment">//     Arrays.fill(b, false);</span><br>        <span class="hljs-comment">// &#125;</span><br><br>        <span class="hljs-comment">// int len = 1;</span><br>        <span class="hljs-comment">// int x = 0;</span><br>        <span class="hljs-comment">// int y = 0;</span><br>        <span class="hljs-comment">// for (int j = 0; j &lt; str.length; j ++ ) &#123;</span><br>        <span class="hljs-comment">//     for (int i = 0; i &lt;= j; i ++ ) &#123;</span><br>        <span class="hljs-comment">//         if (str[i] == str[j] &amp;&amp; (j - i &lt;= 1 || f[i + 1][j - 1] == true)) &#123;</span><br>        <span class="hljs-comment">//             f[i][j] = true;</span><br>        <span class="hljs-comment">//             if (j - i + 1 &gt; len) &#123;</span><br>        <span class="hljs-comment">//                 len = j - i + 1;</span><br>        <span class="hljs-comment">//                 x = i;</span><br>        <span class="hljs-comment">//                 y = j;</span><br>        <span class="hljs-comment">//             &#125;</span><br>        <span class="hljs-comment">//         &#125;</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// return s.substring(x, y + 1);</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3、回文串数目"><a href="#3、回文串数目" class="headerlink" title="3、回文串数目"></a>3、回文串数目</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">647.</span> 回文子串（求回文串数目）<br>给你一个字符串 s ，请你统计并返回这个字符串中 回文子串 的数目。<br>回文字符串 是正着读和倒过来读一样的字符串。<br>子字符串 是字符串中的由连续字符组成的一个序列。<br>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countSubstrings</span><span class="hljs-params">(String s)</span> &#123;<br>    <span class="hljs-comment">// 方式一</span><br>    <span class="hljs-comment">// int res = 0;</span><br>    <span class="hljs-comment">// char[] str = s.toCharArray();</span><br>    <span class="hljs-comment">// for (int mid = 0; mid &lt; str.length; mid ++ ) &#123;</span><br>    <span class="hljs-comment">//     int i = mid;</span><br>    <span class="hljs-comment">//     int j = mid;</span><br>    <span class="hljs-comment">//     while (i &gt;= 0 &amp;&amp; j &lt; str.length &amp;&amp; str[i] == str[j]) &#123;</span><br>    <span class="hljs-comment">//         i--;</span><br>    <span class="hljs-comment">//         j++;</span><br>    <span class="hljs-comment">//         res++;</span><br>    <span class="hljs-comment">//     &#125;</span><br>    <span class="hljs-comment">//     i = mid - 1;</span><br>    <span class="hljs-comment">//     j = mid;</span><br>    <span class="hljs-comment">//     while (i &gt;= 0 &amp;&amp; j &lt; str.length &amp;&amp; str[i] == str[j]) &#123;</span><br>    <span class="hljs-comment">//         i--;</span><br>    <span class="hljs-comment">//         j++;</span><br>    <span class="hljs-comment">//         res++;</span><br>    <span class="hljs-comment">//     &#125;</span><br>    <span class="hljs-comment">// &#125;</span><br>    <span class="hljs-comment">// return res;</span><br><br>    <span class="hljs-comment">// 方式二</span><br>    <span class="hljs-type">char</span>[] str = s.toCharArray();<br>    <span class="hljs-type">boolean</span>[][] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[str.length][str.length];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">boolean</span>[] b : f) &#123;<br>        Arrays.fill(b, <span class="hljs-literal">false</span>);<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; str.length; j ++ ) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;= j; i ++ ) &#123;<br>            <span class="hljs-keyword">if</span> (str[i] == str[j] &amp;&amp; (j - i &lt;= <span class="hljs-number">1</span> || f[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] == <span class="hljs-literal">true</span>)) &#123;<br>                f[i][j] = <span class="hljs-literal">true</span>;<br>                res++;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>刷题相关</category>
-        <category>1</category>
-        <category>2</category>
-        <category>3</category>
-        <category>4</category>
-        <category>5</category>
-        <category>6</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>回文串总结</tag>
       </tags>
   </entry>
   <entry>
@@ -514,8 +508,8 @@
         <category>刷题相关</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>动态规划</tag>
+        <tag>数据结构</tag>
         <tag>Leetcode</tag>
         <tag>Java</tag>
         <tag>搜索</tag>
