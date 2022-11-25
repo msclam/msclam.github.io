@@ -13,7 +13,7 @@
     
     <categories>
       
-      <category>刷题</category>
+      <category>刷题相关</category>
       
     </categories>
     
@@ -23,6 +23,22 @@
       <tag>Leetcode</tag>
       
       <tag>Java</tag>
+      
+      <tag>搜索</tag>
+      
+      <tag>查找</tag>
+      
+      <tag>动态规划</tag>
+      
+      <tag>DFS</tag>
+      
+      <tag>BFS</tag>
+      
+      <tag>数据结构</tag>
+      
+      <tag>排序</tag>
+      
+      <tag>字符串匹配</tag>
       
     </tags>
     
@@ -40,9 +56,7 @@
     
     <categories>
       
-      <category>排序</category>
-      
-      <category>c++</category>
+      <category>排序算法</category>
       
     </categories>
     
@@ -50,6 +64,8 @@
     <tags>
       
       <tag>排序算法</tag>
+      
+      <tag>c++</tag>
       
     </tags>
     
@@ -67,7 +83,7 @@
     
     <categories>
       
-      <category>life</category>
+      <category>literature</category>
       
     </categories>
     
@@ -75,6 +91,12 @@
     <tags>
       
       <tag>blog</tag>
+      
+      <tag>English</tag>
+      
+      <tag>poetry</tag>
+      
+      <tag>literature</tag>
       
     </tags>
     
