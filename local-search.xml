@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>hexo+fluid部署博客</title>
+    <link href="/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p><span id="more"></span><h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure><h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure><h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure><h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p><p>2、添加标签和分类</p><p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p><p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p><p>在_posts文件中文章.md的头添加</p><figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure><p>3、本地搜索的开启（安装插件）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure><p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p><p>5、分页设置</p><p>安装插件</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure><p>_config.yml的设置</p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure><p>6、首页显示摘要</p><p>正文以上加上 <!-- more --></p><p>_config.yml的设置</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客部署</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>blog</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>回文串问题总结</title>
     <link href="/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <url>/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
@@ -295,9 +320,9 @@
     
     <tags>
       
-      <tag>c++</tag>
-      
       <tag>排序算法</tag>
+      
+      <tag>c++</tag>
       
     </tags>
     
@@ -353,6 +378,17 @@
   
   
   <entry>
+    <title>categories</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
@@ -365,17 +401,6 @@
   
   <entry>
     <title>tags</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
