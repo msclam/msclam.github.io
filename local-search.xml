@@ -4,6 +4,41 @@
   
   
   <entry>
+    <title>二叉树类型</title>
+    <link href="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/"/>
+    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p><p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="img"></p><h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="img"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p><h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p><ul><li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li><li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li><li>它的左、右子树也分别为二叉排序树</li></ul><p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="img"></p><h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p><p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="img"></p><h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>二叉树</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>二叉树</tag>
+      
+      <tag>数据结构</tag>
+      
+      <tag>满二叉树</tag>
+      
+      <tag>平衡二叉树</tag>
+      
+      <tag>二叉搜索树</tag>
+      
+      <tag>完全二叉树</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>二分法模板</title>
     <link href="/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/"/>
     <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
@@ -47,6 +82,8 @@
     
     <tags>
       
+      <tag>数据结构</tag>
+      
       <tag>Leetcode</tag>
       
       <tag>Java</tag>
@@ -60,8 +97,6 @@
       <tag>DFS</tag>
       
       <tag>BFS</tag>
-      
-      <tag>数据结构</tag>
       
       <tag>排序</tag>
       
@@ -148,22 +183,22 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
