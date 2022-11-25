@@ -219,9 +219,9 @@
     
     <tags>
       
-      <tag>动态规划</tag>
-      
       <tag>数据结构</tag>
+      
+      <tag>动态规划</tag>
       
       <tag>Leetcode</tag>
       
@@ -331,7 +331,7 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
@@ -342,7 +342,7 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
