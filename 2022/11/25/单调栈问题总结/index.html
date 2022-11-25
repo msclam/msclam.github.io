@@ -16,29 +16,22 @@
   <meta name="author" content="Koiman Lam">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Git的安装与配置（1） Git的配置在 ~&#x2F;.gitconfig中 12345git config --global user.name 你的英文名 lamgit config --global user.email 你的邮箱 git config --global push.default simple # 配置git的默认，默认是Matching,此行为会push所有分支，simp">
+    <meta name="description" content="单调栈问题总结739 每日温度123456789101112131415161718请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。例如，给定一个列表 temperatures &#x3D; [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git的使用">
-<meta property="og:url" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="单调栈问题总结">
+<meta property="og:url" content="http://example.com/2022/11/25/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Git的安装与配置（1） Git的配置在 ~&#x2F;.gitconfig中 12345git config --global user.name 你的英文名 lamgit config --global user.email 你的邮箱 git config --global push.default simple # 配置git的默认，默认是Matching,此行为会push所有分支，simp">
+<meta property="og:description" content="单调栈问题总结739 每日温度123456789101112131415161718请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。例如，给定一个列表 temperatures &#x3D; [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%8E%A8%E9%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%93%E5%BA%93.png">
-<meta property="og:image" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81.png">
-<meta property="og:image" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%88%86%E6%94%AF.png">
-<meta property="article:published_time" content="2022-11-25T05:21:03.000Z">
-<meta property="article:modified_time" content="2022-11-25T05:30:04.642Z">
+<meta property="article:published_time" content="2022-11-25T06:08:03.000Z">
+<meta property="article:modified_time" content="2022-11-25T06:09:11.094Z">
 <meta property="article:author" content="Koiman Lam">
-<meta property="article:tag" content="Git的配置与使用">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="Github">
+<meta property="article:tag" content="单调栈问题总结">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png">
   
   
   
-  <title>git的使用 - Blog</title>
+  <title>单调栈问题总结 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="git的使用"></span>
+            <span id="subtitle" data-typed-text="单调栈问题总结"></span>
           
         </div>
 
@@ -214,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-25 13:21" pubdate>
+        <time datetime="2022-11-25 14:08" pubdate>
           2022年11月25日 下午
         </time>
       </span>
@@ -226,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.8k 字
         
       </span>
     
@@ -237,7 +230,7 @@
         
         
         
-          13 分钟
+          16 分钟
         
       </span>
     
@@ -275,29 +268,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">git的使用</h1>
+            <h1 style="display: none">单调栈问题总结</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><h3 id="（1）-Git的配置"><a href="#（1）-Git的配置" class="headerlink" title="（1） Git的配置"></a>（1） Git的配置</h3><p>在 ~&#x2F;.gitconfig中</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autoit">git config --<span class="hljs-keyword">global</span> user.name 你的英文名 lam<br>git config --<span class="hljs-keyword">global</span> user.email 你的邮箱 <br>git config --<span class="hljs-keyword">global</span> push.<span class="hljs-literal">default</span> simple <span class="hljs-meta"># 配置git的默认，默认是Matching,此行为会push所有分支，simple只会push当前分支 </span><br>git config --<span class="hljs-keyword">global</span> core.quotepath <span class="hljs-literal">false</span> <span class="hljs-meta"># 防止文件名变成数字</span><br>git config --<span class="hljs-keyword">global</span> core.editor <span class="hljs-string">&quot;vim&quot;</span> <span class="hljs-meta"># 使用vim编辑提交信息</span><br></code></pre></td></tr></table></figure>
+                <h2 id="单调栈问题总结"><a href="#单调栈问题总结" class="headerlink" title="单调栈问题总结"></a>单调栈问题总结</h2><h3 id="739-每日温度"><a href="#739-每日温度" class="headerlink" title="739 每日温度"></a>739 每日温度</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 <span class="hljs-number">0</span> 来代替。<br><br>例如，给定一个列表 temperatures = [<span class="hljs-number">73</span>, <span class="hljs-number">74</span>, <span class="hljs-number">75</span>, <span class="hljs-number">71</span>, <span class="hljs-number">69</span>, <span class="hljs-number">72</span>, <span class="hljs-number">76</span>, <span class="hljs-number">73</span>]，你的输出应该是 [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]。<br><br>提示：气温 列表长度的范围是 [<span class="hljs-number">1</span>, <span class="hljs-number">30000</span>]。每个气温的值的均为华氏度，都是在 [<span class="hljs-number">30</span>, <span class="hljs-number">100</span>] 范围内的整数。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dailyTemperatures(<span class="hljs-type">int</span>[] temperatures) &#123;<br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[temperatures.length];<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; temperatures.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; temperatures[i] &gt; temperatures[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">preIdx</span> <span class="hljs-operator">=</span> st.pop();<br>            res[preIdx] = i - preIdx;<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;    <br></code></pre></td></tr></table></figure>
+
+<h3 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42 接雨水"></a>42 接雨水</h3><p><strong>重点：其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java">当前遍历的元素i，就是凹槽右边的位置，下标为i，对应的高度为height[i]（就是图中的高度<span class="hljs-number">3</span>）。<br><br>此时大家应该可以发现**其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！**<br><br>那么雨水高度是 min(凹槽左边高度, 凹槽右边高度) - 凹槽底部高度，代码为：<span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> min(height[st.top()], height[i]) - height[mid];<br><br>雨水的宽度是 凹槽右边的下标 - 凹槽左边的下标 - <span class="hljs-number">1</span>（因为只求中间宽度），代码为：<span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.top() - <span class="hljs-number">1</span> ;<br><br>当前凹槽雨水的体积就是：h * w。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">trap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>    <span class="hljs-keyword">if</span> (height == <span class="hljs-literal">null</span> || height.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; height.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; height[i] &gt; height[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> st.pop();<br>            <span class="hljs-keyword">if</span> (!st.isEmpty()) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> Math.min(height[i], height[st.peek()]) - height[mid];<br>                <span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.peek() - <span class="hljs-number">1</span>;<br>                sum += h * w;<br>            &#125;<br>        &#125;<br>        st.push(i);<br>    &#125;   <br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="（2）-命令介绍"><a href="#（2）-命令介绍" class="headerlink" title="（2） 命令介绍"></a>（2） 命令介绍</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">1</span><span class="hljs-selector-class">.git</span> init，初始化本地仓库 <span class="hljs-selector-class">.git</span><br><br><span class="hljs-number">2</span><span class="hljs-selector-class">.git</span> status -sb，显示当前所有文件的状态<br><br><span class="hljs-number">3</span><span class="hljs-selector-class">.git</span> log 查看变更历史<br><br><span class="hljs-number">4</span><span class="hljs-selector-class">.git</span> add 文件路径，用来将变动加到暂存区<br><br><span class="hljs-number">5</span><span class="hljs-selector-class">.git</span> commit -m <span class="hljs-string">&quot;信息&quot;</span>，用来正式提交变动，提交至 <span class="hljs-selector-class">.git</span> 仓库<br><br><span class="hljs-number">6</span>.如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m <span class="hljs-string">&#x27;xxx&#x27;</span> 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。<br><br><span class="hljs-number">7</span><span class="hljs-selector-class">.git</span> clone git@github<span class="hljs-selector-class">.com</span>:xxxx，下载仓库<br><br><span class="hljs-number">8</span><span class="hljs-selector-class">.history</span> 是显示历史的命令<br></code></pre></td></tr></table></figure>
+<h3 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84 柱状图中最大的矩形"></a>84 柱状图中最大的矩形</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 <span class="hljs-number">1</span> 。<br><br>求在该柱状图中，能够勾勒出来的矩形的最大面积。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">largestRectangleArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] heights)</span> &#123;<br>    <span class="hljs-type">int</span>[] nHeights = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[heights.length + <span class="hljs-number">2</span>];<br>    System.arraycopy(heights, <span class="hljs-number">0</span>, nHeights, <span class="hljs-number">1</span>, heights.length);<br><br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">area</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nHeights.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; nHeights[i] &lt; nHeights[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> nHeights[st.pop()];<br>            area = Math.max(area, h * (i - st.peek() - <span class="hljs-number">1</span>));<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> area;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
-
-<h3 id="（3）-使用git"><a href="#（3）-使用git" class="headerlink" title="（3） 使用git"></a>（3） 使用git</h3><p><strong>使用总结</strong></p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>、从github或者gitee下载代码<br>git clone git@github.com:msclam/blog.git<br><br><span class="hljs-number">2</span>、上传我们的代码到github或者gitee中<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;信息&quot;<br>git pull 从服务器中拉代码<br>git push 推送代码到github或者gitee中<br><br><span class="hljs-number">3</span>、合作发生冲突时<br>别人修改了代码，但是自己没有先pull,自己也修改了代码，然后pull的时候，会要求你先添加到暂存区+本地仓库<span class="hljs-keyword">add</span>和<span class="hljs-keyword">commit</span><br>然后如果pull产生<span class="hljs-keyword">conflict</span>的话，需要处理冲突,head的部分是自己的修改地方，解决冲突之后重新提交<br><br><span class="hljs-number">4</span>、个人新建仓库并往上面推代码<br>创建仓库<br>git init<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;&quot;<br>git remote <span class="hljs-keyword">add</span> origin git@github.com:msclam/blog.git  // 添加远程仓库<br>git push -u origin master// 如果没有推上去 git push <span class="hljs-comment">--set-upstream origin master</span><br><br>已经有就只需要后两句<br><br><span class="hljs-number">5</span>、添加一个新的远程仓库<br>git remote <span class="hljs-keyword">add</span> github https://github.com/msclam/blog.git<br>git remote -v // 查看自己有哪些远程仓库<br>git push github master<br><br><span class="hljs-number">6</span>、回退版本<br>git <span class="hljs-keyword">log</span>之后退出按q<br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD^  //回退到上一个版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD~n //回退到n次以前的版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard commit号  //回退到指定的版本</span><br><br><span class="hljs-number">7</span>、分支<br>git checkout test // 切换分支<br>合并到master<br>git checkout master<br>git merge test<br>git push<br></code></pre></td></tr></table></figure>
-
-<h4 id="日常工作的流程"><a href="#日常工作的流程" class="headerlink" title="日常工作的流程"></a>日常工作的流程</h4><p>上班先git pull然后git add commit，下班git pull，然后解决冲突，最后git push</p>
-<p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" lazyload alt="日常流程"></p>
-<h4 id="关于推送不同的仓库"><a href="#关于推送不同的仓库" class="headerlink" title="关于推送不同的仓库"></a>关于推送不同的仓库</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%8E%A8%E9%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%93%E5%BA%93.png" srcset="/img/loading.gif" lazyload alt="推送不同的仓库"></p>
-<h4 id="关于冲突"><a href="#关于冲突" class="headerlink" title="关于冲突"></a>关于冲突</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81.png" srcset="/img/loading.gif" lazyload alt="关于冲突"></p>
-<h4 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%88%86%E6%94%AF.png" srcset="/img/loading.gif" lazyload alt="关于分支"></p>
-
+<h3 id="括号题目"><a href="#括号题目" class="headerlink" title="括号题目"></a>括号题目</h3>
                 
               </div>
             
@@ -315,7 +300,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Git/" class="category-chain-item">Git</a>
+  <a href="/categories/%E5%88%B7%E9%A2%98/" class="category-chain-item">刷题</a>
   
   
 
@@ -330,11 +315,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Git%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">#Git的配置与使用</a>
-      
-        <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
-      
-        <a href="/tags/Github/">#Github</a>
+        <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">#单调栈问题总结</a>
       
     </div>
   
@@ -346,8 +327,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>git的使用</div>
-      <div>http://example.com/2022/11/25/git的使用/</div>
+      <div>单调栈问题总结</div>
+      <div>http://example.com/2022/11/25/单调栈问题总结/</div>
     </div>
     <div class="license-meta">
       
@@ -391,18 +372,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/25/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="单调栈问题总结">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">单调栈问题总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/25/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="背包问题总结">
-                        <span class="hidden-mobile">背包问题总结</span>
+                      <a href="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git的使用">
+                        <span class="hidden-mobile">git的使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
