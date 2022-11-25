@@ -15,6 +15,18 @@
       
       <category>刷题相关</category>
       
+      <category>1</category>
+      
+      <category>2</category>
+      
+      <category>3</category>
+      
+      <category>4</category>
+      
+      <category>5</category>
+      
+      <category>6</category>
+      
     </categories>
     
     
@@ -349,11 +361,11 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
@@ -371,11 +383,11 @@
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
