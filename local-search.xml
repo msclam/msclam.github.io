@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>git的使用</title>
+    <link href="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <url>/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><h3 id="（1）-Git的配置"><a href="#（1）-Git的配置" class="headerlink" title="（1） Git的配置"></a>（1） Git的配置</h3><p>在 ~&#x2F;.gitconfig中</p><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autoit">git config --<span class="hljs-keyword">global</span> user.name 你的英文名 lam<br>git config --<span class="hljs-keyword">global</span> user.email 你的邮箱 <br>git config --<span class="hljs-keyword">global</span> push.<span class="hljs-literal">default</span> simple <span class="hljs-meta"># 配置git的默认，默认是Matching,此行为会push所有分支，simple只会push当前分支 </span><br>git config --<span class="hljs-keyword">global</span> core.quotepath <span class="hljs-literal">false</span> <span class="hljs-meta"># 防止文件名变成数字</span><br>git config --<span class="hljs-keyword">global</span> core.editor <span class="hljs-string">&quot;vim&quot;</span> <span class="hljs-meta"># 使用vim编辑提交信息</span><br></code></pre></td></tr></table></figure><h3 id="（2）-命令介绍"><a href="#（2）-命令介绍" class="headerlink" title="（2） 命令介绍"></a>（2） 命令介绍</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">1</span><span class="hljs-selector-class">.git</span> init，初始化本地仓库 <span class="hljs-selector-class">.git</span><br><br><span class="hljs-number">2</span><span class="hljs-selector-class">.git</span> status -sb，显示当前所有文件的状态<br><br><span class="hljs-number">3</span><span class="hljs-selector-class">.git</span> log 查看变更历史<br><br><span class="hljs-number">4</span><span class="hljs-selector-class">.git</span> add 文件路径，用来将变动加到暂存区<br><br><span class="hljs-number">5</span><span class="hljs-selector-class">.git</span> commit -m <span class="hljs-string">&quot;信息&quot;</span>，用来正式提交变动，提交至 <span class="hljs-selector-class">.git</span> 仓库<br><br><span class="hljs-number">6</span>.如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m <span class="hljs-string">&#x27;xxx&#x27;</span> 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。<br><br><span class="hljs-number">7</span><span class="hljs-selector-class">.git</span> clone git@github<span class="hljs-selector-class">.com</span>:xxxx，下载仓库<br><br><span class="hljs-number">8</span><span class="hljs-selector-class">.history</span> 是显示历史的命令<br></code></pre></td></tr></table></figure><h3 id="（3）-使用git"><a href="#（3）-使用git" class="headerlink" title="（3） 使用git"></a>（3） 使用git</h3><p><strong>使用总结</strong></p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>、从github或者gitee下载代码<br>git clone git@github.com:msclam/blog.git<br><br><span class="hljs-number">2</span>、上传我们的代码到github或者gitee中<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;信息&quot;<br>git pull 从服务器中拉代码<br>git push 推送代码到github或者gitee中<br><br><span class="hljs-number">3</span>、合作发生冲突时<br>别人修改了代码，但是自己没有先pull,自己也修改了代码，然后pull的时候，会要求你先添加到暂存区+本地仓库<span class="hljs-keyword">add</span>和<span class="hljs-keyword">commit</span><br>然后如果pull产生<span class="hljs-keyword">conflict</span>的话，需要处理冲突,head的部分是自己的修改地方，解决冲突之后重新提交<br><br><span class="hljs-number">4</span>、个人新建仓库并往上面推代码<br>创建仓库<br>git init<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;&quot;<br>git remote <span class="hljs-keyword">add</span> origin git@github.com:msclam/blog.git  // 添加远程仓库<br>git push -u origin master// 如果没有推上去 git push <span class="hljs-comment">--set-upstream origin master</span><br><br>已经有就只需要后两句<br><br><span class="hljs-number">5</span>、添加一个新的远程仓库<br>git remote <span class="hljs-keyword">add</span> github https://github.com/msclam/blog.git<br>git remote -v // 查看自己有哪些远程仓库<br>git push github master<br><br><span class="hljs-number">6</span>、回退版本<br>git <span class="hljs-keyword">log</span>之后退出按q<br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD^  //回退到上一个版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD~n //回退到n次以前的版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard commit号  //回退到指定的版本</span><br><br><span class="hljs-number">7</span>、分支<br>git checkout test // 切换分支<br>合并到master<br>git checkout master<br>git merge test<br>git push<br></code></pre></td></tr></table></figure><h4 id="日常工作的流程"><a href="#日常工作的流程" class="headerlink" title="日常工作的流程"></a>日常工作的流程</h4><p>上班先git pull然后git add commit，下班git pull，然后解决冲突，最后git push</p><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png" alt="日常流程"></p><h4 id="关于推送不同的仓库"><a href="#关于推送不同的仓库" class="headerlink" title="关于推送不同的仓库"></a>关于推送不同的仓库</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%8E%A8%E9%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%93%E5%BA%93.png" alt="推送不同的仓库"></p><h4 id="关于冲突"><a href="#关于冲突" class="headerlink" title="关于冲突"></a>关于冲突</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81.png" alt="关于冲突"></p><h4 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%88%86%E6%94%AF.png" alt="关于分支"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git的配置与使用</tag>
+      
+      <tag>工具</tag>
+      
+      <tag>Github</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>背包问题总结</title>
     <link href="/2022/11/25/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <url>/2022/11/25/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
@@ -277,7 +306,7 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
@@ -288,7 +317,7 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
