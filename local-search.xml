@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>打家劫舍问题总结</title>
+    <link href="/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h2 id="打家劫舍问题综合"><a href="#打家劫舍问题综合" class="headerlink" title="打家劫舍问题综合"></a>打家劫舍问题综合</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题相关</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+      <tag>打家劫舍问题综合</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>买卖股票问题总结</title>
     <link href="/2022/11/25/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <url>/2022/11/25/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
@@ -212,17 +239,6 @@
   
   
   <entry>
-    <title>tags</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>categories</title>
     <link href="/"/>
     <url>/</url>
@@ -239,6 +255,17 @@
     <url>/</url>
     
     <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>tags</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   

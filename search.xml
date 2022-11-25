@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Quick Start</title>
+    <url>/2022/11/24/Quick%20Start/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>When You Are Old</title>
     <url>/2022/11/24/When%20you%20are%20old/</url>
     <content><![CDATA[<center>
@@ -54,44 +74,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二分法模板</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>算法模板</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-        <tag>二分法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Quick Start</title>
-    <url>/2022/11/24/Quick%20Start/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>买卖股票问题总结</title>
     <url>/2022/11/25/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="买卖股票问题综合"><a href="#买卖股票问题综合" class="headerlink" title="买卖股票问题综合"></a>买卖股票问题综合</h2><h3 id="lc-121-买卖股票的最佳时机i（买卖一次）"><a href="#lc-121-买卖股票的最佳时机i（买卖一次）" class="headerlink" title="lc 121 买卖股票的最佳时机i（买卖一次）"></a>lc 121 买卖股票的最佳时机i（买卖一次）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxProfit</span><span class="hljs-params">(<span class="hljs-type">int</span>[] prices)</span> &#123;<br>    <span class="hljs-keyword">if</span> (prices == <span class="hljs-literal">null</span> || prices.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">min</span> <span class="hljs-operator">=</span> Integer.MAX_VALUE;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; prices.length; i++ ) &#123;<br>        min = Math.min(min, prices[i]);<br>        res = Math.max(res, prices[i] - min);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>    <br>    <span class="hljs-keyword">if</span> (prices == <span class="hljs-literal">null</span> || prices.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span>[][] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[prices.length][<span class="hljs-number">2</span>];<br>    f[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = -prices[<span class="hljs-number">0</span>];<br>    f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; prices.length; i++ ) &#123;<br>        f[i][<span class="hljs-number">1</span>] = Math.max(f[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], -prices[i]); <span class="hljs-comment">// 只能买一次</span><br>        f[i][<span class="hljs-number">0</span>] = Math.max(f[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>], prices[i] + f[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[prices.length - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -127,6 +109,24 @@
       </tags>
   </entry>
   <entry>
+    <title>二分法模板</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>算法模板</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>二分法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树类型</title>
     <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
@@ -154,6 +154,27 @@
         <tag>平衡二叉树</tag>
         <tag>二叉搜索树</tag>
         <tag>完全二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打家劫舍问题总结</title>
+    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="打家劫舍问题综合"><a href="#打家劫舍问题综合" class="headerlink" title="打家劫舍问题综合"></a>打家劫舍问题综合</h2><h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>打家劫舍问题综合</tag>
       </tags>
   </entry>
   <entry>
