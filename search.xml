@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Quick Start</title>
+    <url>/2022/11/24/Quick%20Start/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>When You Are Old</title>
     <url>/2022/11/24/When%20you%20are%20old/</url>
     <content><![CDATA[<center>
@@ -54,26 +74,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Quick Start</title>
-    <url>/2022/11/24/Quick%20Start/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>git的使用</title>
     <url>/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><h3 id="（1）-Git的配置"><a href="#（1）-Git的配置" class="headerlink" title="（1） Git的配置"></a>（1） Git的配置</h3><p>在 ~&#x2F;.gitconfig中</p>
@@ -101,6 +101,24 @@
         <tag>Git的配置与使用</tag>
         <tag>工具</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二分法模板</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>算法模板</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>二分法</tag>
       </tags>
   </entry>
   <entry>
@@ -139,21 +157,34 @@
       </tags>
   </entry>
   <entry>
-    <title>二分法模板</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
-
-
+    <title>二叉树类型</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
+<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
+<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
+<li>它的左、右子树也分别为二叉排序树</li>
+</ul>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
+<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
+<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>算法模板</category>
+        <category>数据结构</category>
+        <category>二叉树</category>
       </categories>
       <tags>
-        <tag>c++</tag>
-        <tag>二分法</tag>
+        <tag>二叉树</tag>
+        <tag>数据结构</tag>
+        <tag>满二叉树</tag>
+        <tag>平衡二叉树</tag>
+        <tag>二叉搜索树</tag>
+        <tag>完全二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -174,36 +205,6 @@
       </categories>
       <tags>
         <tag>单调栈问题总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二叉树类型</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
-<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
-<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
-<ul>
-<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
-<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
-<li>它的左、右子树也分别为二叉排序树</li>
-</ul>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
-<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
-<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>二叉树</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-        <tag>数据结构</tag>
-        <tag>满二叉树</tag>
-        <tag>平衡二叉树</tag>
-        <tag>二叉搜索树</tag>
-        <tag>完全二叉树</tag>
       </tags>
   </entry>
   <entry>

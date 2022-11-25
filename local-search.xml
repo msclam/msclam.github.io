@@ -150,6 +150,8 @@
     
     <categories>
       
+      <category>数据结构</category>
+      
       <category>二叉树</category>
       
     </categories>
@@ -320,22 +322,22 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
