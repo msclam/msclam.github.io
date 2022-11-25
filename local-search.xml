@@ -40,7 +40,9 @@
     
     <categories>
       
-      <category>排序、c++</category>
+      <category>排序</category>
+      
+      <category>c++</category>
       
     </categories>
     
@@ -108,7 +110,7 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
@@ -119,7 +121,7 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
