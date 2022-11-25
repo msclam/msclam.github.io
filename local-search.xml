@@ -40,9 +40,7 @@
     
     <categories>
       
-      <category>排序</category>
-      
-      <category>c++</category>
+      <category>排序、c++</category>
       
     </categories>
     
@@ -99,17 +97,6 @@
   
   
   <entry>
-    <title>categories</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
@@ -122,6 +109,17 @@
   
   <entry>
     <title>tags</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
