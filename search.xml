@@ -57,7 +57,7 @@
         <br><br>
         And hid his face amid a crowd of stars.
     </strong>
-
+​																																										——William Butler Yeats
 
 
 <hr>
@@ -108,37 +108,58 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉树类型</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><p>二叉树类型：满二叉树、完全二叉树、二叉搜索树、平衡二叉树</p>
+    <title>hexo+fluid部署博客</title>
+    <url>/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p>
 <span id="more"></span>
 
-<h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
-<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
-<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
-<ul>
-<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
-<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
-<li>它的左、右子树也分别为二叉排序树</li>
-</ul>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
-<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
-<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
-<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    	（请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p>
+<p>2、添加标签和分类</p>
+<p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p>
+<p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p>
+<p>在_posts文件中文章.md的头添加</p>
+<figure class="highlight ldif"><table><tr><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure>
+
+<p>3、本地搜索的开启（安装插件）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure>
+
+<p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p>
+<p>5、分页设置</p>
+<p>安装插件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure>
+
+<p>_config.yml的设置</p>
+<figure class="highlight nestedtext"><table><tr><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure>
+
+<p>6、首页显示摘要</p>
+<p>正文以上加上 <!-- more --></p>
+<p>_config.yml的设置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>数据结构</category>
-        <category>二叉树</category>
+        <category>工具相关</category>
+        <category>hexo博客部署</category>
       </categories>
       <tags>
-        <tag>二叉树</tag>
-        <tag>数据结构</tag>
-        <tag>满二叉树</tag>
-        <tag>平衡二叉树</tag>
-        <tag>二叉搜索树</tag>
-        <tag>完全二叉树</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -201,58 +222,37 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo+fluid部署博客</title>
-    <url>/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p>
+    <title>二叉树类型</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><p>二叉树类型：满二叉树、完全二叉树、二叉搜索树、平衡二叉树</p>
 <span id="more"></span>
 
-<h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    	（请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p>
-<p>2、添加标签和分类</p>
-<p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p>
-<p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p>
-<p>在_posts文件中文章.md的头添加</p>
-<figure class="highlight ldif"><table><tr><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure>
-
-<p>3、本地搜索的开启（安装插件）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure>
-
-<p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p>
-<p>5、分页设置</p>
-<p>安装插件</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure>
-
-<p>_config.yml的设置</p>
-<figure class="highlight nestedtext"><table><tr><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure>
-
-<p>6、首页显示摘要</p>
-<p>正文以上加上 <!-- more --></p>
-<p>_config.yml的设置</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<h4 id="1、满二叉树"><a href="#1、满二叉树" class="headerlink" title="1、满二叉树"></a>1、满二叉树</h4><p>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="满二叉树"></p>
+<h4 id="2、完全二叉树"><a href="#2、完全二叉树" class="headerlink" title="2、完全二叉树"></a>2、完全二叉树</h4><p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^h -1  个节点。<br><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91.png" alt="完全二叉树"><br><strong>优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系</strong></p>
+<h4 id="3、二叉搜索树"><a href="#3、二叉搜索树" class="headerlink" title="3、二叉搜索树"></a>3、二叉搜索树</h4><p>前面介绍的树，都没有数值的，而二叉搜索树是有数值的了，<strong>二叉搜索树是一个有序树</strong>。</p>
+<ul>
+<li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
+<li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
+<li>它的左、右子树也分别为二叉排序树</li>
+</ul>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="二叉搜索树"></p>
+<h4 id="4、平衡二叉搜索树"><a href="#4、平衡二叉搜索树" class="headerlink" title="4、平衡二叉搜索树"></a>4、平衡二叉搜索树</h4><p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
+<p><img src="/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.png" alt="平衡二叉搜索树"></p>
+<h4 id="5、数据结构"><a href="#5、数据结构" class="headerlink" title="5、数据结构"></a>5、数据结构</h4><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> &#123;<br>    <span class="hljs-type">int</span> val;<br>    Node left;<br>    Node right;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Node</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> &#123;<br>        <span class="hljs-built_in">this</span>.val = val;<br>        <span class="hljs-built_in">this</span>.left = <span class="hljs-literal">null</span>;<br>        <span class="hljs-built_in">this</span>.right = <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>工具相关</category>
-        <category>hexo博客部署</category>
+        <category>数据结构</category>
+        <category>二叉树</category>
       </categories>
       <tags>
-        <tag>blog</tag>
+        <tag>二叉树</tag>
+        <tag>数据结构</tag>
+        <tag>满二叉树</tag>
+        <tag>平衡二叉树</tag>
+        <tag>二叉搜索树</tag>
+        <tag>完全二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -284,30 +284,6 @@
       </tags>
   </entry>
   <entry>
-    <title>打家劫舍问题总结</title>
-    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><p>主要类型：线性、环状（两个数组）、树形（res[0]、res[1]存储要、不要的结果）</p>
-<span id="more"></span>
-
-<h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题相关</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>打家劫舍问题总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回文串问题总结</title>
     <url>/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="回文串总结"><a href="#回文串总结" class="headerlink" title="回文串总结"></a>回文串总结</h3><p>中心扩展 或者 动态规划实现</p>
@@ -330,6 +306,30 @@
       <tags>
         <tag>动态规划</tag>
         <tag>回文串总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打家劫舍问题总结</title>
+    <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><p>主要类型：线性、环状（两个数组）、树形（res[0]、res[1]存储要、不要的结果）</p>
+<span id="more"></span>
+
+<h3 id="lc-198-打家劫舍"><a href="#lc-198-打家劫舍" class="headerlink" title="lc 198 打家劫舍"></a>lc 198 打家劫舍</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// f[i]表示前i个房子的最大价值</span><br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++ ) &#123;<br>        f[i] = Math.max(nums[i - <span class="hljs-number">1</span>] + f[i - <span class="hljs-number">2</span>], f[i - <span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-213-打家劫舍ii-（成环）"><a href="#lc-213-打家劫舍ii-（成环）" class="headerlink" title="lc 213 打家劫舍ii  （成环）"></a>lc 213 打家劫舍ii  （成环）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-keyword">if</span> (nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-type">int</span>[] f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>    <span class="hljs-type">int</span>[] g = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>    f[<span class="hljs-number">0</span>] = g[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>    f[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">0</span>];<br>    g[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n - <span class="hljs-number">1</span>; i++ ) &#123;<br>        f[i] = Math.max(f[i - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">2</span>] + nums[i - <span class="hljs-number">1</span>]);<br>        g[i] = Math.max(g[i - <span class="hljs-number">1</span>], g[i - <span class="hljs-number">2</span>] + nums[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> Math.max(f[n - <span class="hljs-number">1</span>], g[n - <span class="hljs-number">1</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="lc-337-打家劫舍iii-（树形）"><a href="#lc-337-打家劫舍iii-（树形）" class="headerlink" title="lc 337 打家劫舍iii  （树形）"></a>lc 337 打家劫舍iii  （树形）</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">rob</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-type">int</span>[] res = dfs(root);<br>    <span class="hljs-keyword">return</span> Math.max(res[<span class="hljs-number">0</span>], res[<span class="hljs-number">1</span>]);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dfs(TreeNode root) &#123;<br>    <span class="hljs-comment">// res[0]当前节点不偷的最大价值, res[1]当前节点偷的最大价值</span><br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>]; <br><br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> res;<br><br>    <span class="hljs-type">int</span>[] left = dfs(root.left);<br>    <span class="hljs-type">int</span>[] right = dfs(root.right);<br><br>    res[<span class="hljs-number">1</span>] = root.val + left[<span class="hljs-number">0</span>] + right[<span class="hljs-number">0</span>];<br>    res[<span class="hljs-number">0</span>] = Math.max(left[<span class="hljs-number">0</span>], left[<span class="hljs-number">1</span>]) + Math.max(right[<span class="hljs-number">0</span>], right[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>打家劫舍问题总结</tag>
       </tags>
   </entry>
   <entry>
@@ -600,8 +600,8 @@
         <category>刷题相关</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>动态规划</tag>
+        <tag>数据结构</tag>
         <tag>Leetcode</tag>
         <tag>Java</tag>
         <tag>搜索</tag>
