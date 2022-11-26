@@ -16,22 +16,24 @@
   <meta name="author" content="Koiman Lam">
   <meta name="keywords" content="">
   
-    <meta name="description" content="hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题">
+    <meta name="description" content="哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度 当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+fluid部署博客">
-<meta property="og:url" content="http://example.com/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="哈夫曼树">
+<meta property="og:url" content="http://example.com/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题">
+<meta property="og:description" content="哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度 当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-25T13:07:15.000Z">
-<meta property="article:modified_time" content="2022-11-25T13:47:22.018Z">
+<meta property="article:published_time" content="2022-11-26T07:29:38.000Z">
+<meta property="article:modified_time" content="2022-11-26T07:34:44.055Z">
 <meta property="article:author" content="Koiman Lam">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="哈夫曼树">
+<meta property="article:tag" content="最优二叉树">
+<meta property="article:tag" content="带权路径长度最小">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>hexo+fluid部署博客 - Blog</title>
+  <title>哈夫曼树 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="hexo+fluid部署博客"></span>
+            <span id="subtitle" data-typed-text="哈夫曼树"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-25 21:07" pubdate>
-          2022年11月25日 晚上
+        <time datetime="2022-11-26 15:29" pubdate>
+          2022年11月26日 下午
         </time>
       </span>
     
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          956 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          20 分钟
+          8 分钟
         
       </span>
     
@@ -268,53 +270,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">hexo+fluid部署博客</h1>
+            <h1 style="display: none">哈夫曼树</h1>
             
             
               <div class="markdown-body">
                 
-                <p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p>
+                <p>哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度</p>
+<p>当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。</p>
 <span id="more"></span>
 
-<h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    	（请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p>
-<p>2、添加标签和分类</p>
-<p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p>
-<p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p>
-<p>在_posts文件中文章.md的头添加</p>
-<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure>
-
-<p>3、本地搜索的开启（安装插件）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure>
-
-<p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p>
-<p>5、分页设置</p>
-<p>安装插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure>
-
-<p>_config.yml的设置</p>
-<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure>
-
-<p>6、首页显示摘要</p>
-<p>正文以上加上 <!-- more --></p>
-<p>_config.yml的设置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-相关名词定义"><a href="#1-相关名词定义" class="headerlink" title="1 相关名词定义"></a>1 相关名词定义</h3><p>路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。图 1 中，从根结点到结点 a 之间的通路就是一条路径。</p>
+<p>路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。图 1 中从根结点到结点 c 的路径长度为 3。</p>
+<p>结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。例如，图 1 中结点 a 的权为 7，结点 b 的权为 5。</p>
+<p>结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。例如，图 1 中结点 b 的带权路径长度为 2 * 5 &#x3D; 10 。</p>
+<p>树的带权路径长度为树中所有叶子结点的带权路径长度之和。通常记作 “WPL” 。例如图 1 中所示的这颗树的带权路径长度为：</p>
+<p><code>WPL = 7 * 1 + 5 * 2 + 2 * 3 + 4 * 3</code></p>
+<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2 例子"></a>2 例子</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> LL;<br>priority_queue&lt;LL, vector&lt;LL&gt;, greater&lt;LL&gt;&gt; q; <span class="hljs-comment">// 小顶堆</span><br><br><span class="hljs-comment">// 求树的带权路径：wpl，所有叶子的带权路径之和（哈夫曼树的非叶子节点的权值之和）</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    LL x, y, tmp;<br>    LL res = <span class="hljs-number">0</span>;<br>    <br>    cin &gt;&gt; n;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ ) &#123;<br>        cin &gt;&gt; tmp;<br>        q.<span class="hljs-built_in">push</span>(tmp);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        x = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        y = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        q.<span class="hljs-built_in">push</span>(x + y);<br>        res += x + y;<br>    &#125;<br><br>    cout &lt;&lt; res &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">1 2 2 3 6</span><br><span class="hljs-comment">30</span><br><span class="hljs-comment">*/</span>   <br></code></pre></td></tr></table></figure>
 
 
                 
@@ -324,39 +295,15 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%B7%A5%E5%85%B7%E7%9B%B8%E5%85%B3/" class="category-chain-item">工具相关</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%B7%A5%E5%85%B7%E7%9B%B8%E5%85%B3/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" class="category-chain-item">hexo博客部署</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/blog/">#blog</a>
+        <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">#哈夫曼树</a>
+      
+        <a href="/tags/%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91/">#最优二叉树</a>
+      
+        <a href="/tags/%E5%B8%A6%E6%9D%83%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F/">#带权路径长度最小</a>
       
     </div>
   
@@ -368,8 +315,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>hexo+fluid部署博客</div>
-      <div>http://example.com/2022/11/25/hexo-fluid部署博客/</div>
+      <div>哈夫曼树</div>
+      <div>http://example.com/2022/11/26/哈夫曼树/</div>
     </div>
     <div class="license-meta">
       
@@ -381,7 +328,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月25日</div>
+          <div>2022年11月26日</div>
         </div>
       
       
@@ -413,18 +360,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" title="哈夫曼树">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">哈夫曼树</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="回文串问题总结">
-                        <span class="hidden-mobile">回文串问题总结</span>
+                      <a href="/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" title="hexo+fluid部署博客">
+                        <span class="hidden-mobile">hexo+fluid部署博客</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
