@@ -4,12 +4,33 @@
   
   
   <entry>
+    <title>并查集</title>
+    <link href="/2022/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    <url>/2022/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    
+    <content type="html"><![CDATA[<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2 具体实现"></a>2 具体实现</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N]; <span class="hljs-comment">// 存放父亲节点（一个集合中的根是唯一的，是否在同一集合相当于是否根相等）</span><br><span class="hljs-type">bool</span> isRoot[N]; <span class="hljs-comment">// 记录每个点是否为某个集合的根节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;  <span class="hljs-comment">// 初始化</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-comment">// 合并a和b所在的集合</span><br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">findFather</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">findFather</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFather</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-comment">// 查找x元素的根节点</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;  <span class="hljs-comment">// 如果不是根节点</span><br>        x = father[x];  <span class="hljs-comment">// 获得父亲节点</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFaterPathCompress</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;  <span class="hljs-comment">//路径压缩</span><br>    <span class="hljs-type">int</span> a = x;  <span class="hljs-comment">// 先存x</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];  <span class="hljs-comment">// x现在为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;    <span class="hljs-comment">// 先存a</span><br>        a = father[a];   <span class="hljs-comment">// 正常找根</span><br>        father[t] = x;  <span class="hljs-comment">// 路径上得都赋值为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>哈夫曼树</title>
     <link href="/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/"/>
     <url>/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
     
     <content type="html"><![CDATA[<p>哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度</p><p>当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。</p><span id="more"></span><h3 id="1-相关名词定义"><a href="#1-相关名词定义" class="headerlink" title="1 相关名词定义"></a>1 相关名词定义</h3><p>路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。图 1 中，从根结点到结点 a 之间的通路就是一条路径。</p><p>路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。图 1 中从根结点到结点 c 的路径长度为 3。</p><p>结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。例如，图 1 中结点 a 的权为 7，结点 b 的权为 5。</p><p>结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。例如，图 1 中结点 b 的带权路径长度为 2 * 5 &#x3D; 10 。</p><p>树的带权路径长度为树中所有叶子结点的带权路径长度之和。通常记作 “WPL” 。例如图 1 中所示的这颗树的带权路径长度为：</p><p><code>WPL = 7 * 1 + 5 * 2 + 2 * 3 + 4 * 3</code></p><h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2 例子"></a>2 例子</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> LL;<br>priority_queue&lt;LL, vector&lt;LL&gt;, greater&lt;LL&gt;&gt; q; <span class="hljs-comment">// 小顶堆</span><br><br><span class="hljs-comment">// 求树的带权路径：wpl，所有叶子的带权路径之和（哈夫曼树的非叶子节点的权值之和）</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    LL x, y, tmp;<br>    LL res = <span class="hljs-number">0</span>;<br>    <br>    cin &gt;&gt; n;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ ) &#123;<br>        cin &gt;&gt; tmp;<br>        q.<span class="hljs-built_in">push</span>(tmp);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        x = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        y = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        q.<span class="hljs-built_in">push</span>(x + y);<br>        res += x + y;<br>    &#125;<br><br>    cout &lt;&lt; res &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">1 2 2 3 6</span><br><span class="hljs-comment">30</span><br><span class="hljs-comment">*/</span>   <br></code></pre></td></tr></table></figure>]]></content>
     
+    
+    <categories>
+      
+      <category>数据结构</category>
+      
+      <category>哈夫曼树</category>
+      
+    </categories>
     
     
     <tags>
@@ -403,11 +424,11 @@
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
@@ -425,11 +446,11 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
