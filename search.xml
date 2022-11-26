@@ -21,40 +21,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>git的使用</title>
-    <url>/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><p>Git的配置、Git命令介绍、Git的具体使用流程</p>
-<span id="more"></span>
-
-<h3 id="（1）-Git的配置"><a href="#（1）-Git的配置" class="headerlink" title="（1） Git的配置"></a>（1） Git的配置</h3><p>在 ~&#x2F;.gitconfig中</p>
-<figure class="highlight autoit"><table><tr><td class="code"><pre><code class="hljs autoit">git config --<span class="hljs-keyword">global</span> user.name 你的英文名 lam<br>git config --<span class="hljs-keyword">global</span> user.email 你的邮箱 <br>git config --<span class="hljs-keyword">global</span> push.<span class="hljs-literal">default</span> simple <span class="hljs-meta"># 配置git的默认，默认是Matching,此行为会push所有分支，simple只会push当前分支 </span><br>git config --<span class="hljs-keyword">global</span> core.quotepath <span class="hljs-literal">false</span> <span class="hljs-meta"># 防止文件名变成数字</span><br>git config --<span class="hljs-keyword">global</span> core.editor <span class="hljs-string">&quot;vim&quot;</span> <span class="hljs-meta"># 使用vim编辑提交信息</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="（2）-命令介绍"><a href="#（2）-命令介绍" class="headerlink" title="（2） 命令介绍"></a>（2） 命令介绍</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">1</span><span class="hljs-selector-class">.git</span> init，初始化本地仓库 <span class="hljs-selector-class">.git</span><br><br><span class="hljs-number">2</span><span class="hljs-selector-class">.git</span> status -sb，显示当前所有文件的状态<br><br><span class="hljs-number">3</span><span class="hljs-selector-class">.git</span> log 查看变更历史<br><br><span class="hljs-number">4</span><span class="hljs-selector-class">.git</span> add 文件路径，用来将变动加到暂存区<br><br><span class="hljs-number">5</span><span class="hljs-selector-class">.git</span> commit -m <span class="hljs-string">&quot;信息&quot;</span>，用来正式提交变动，提交至 <span class="hljs-selector-class">.git</span> 仓库<br><br><span class="hljs-number">6</span>.如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m <span class="hljs-string">&#x27;xxx&#x27;</span> 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。<br><br><span class="hljs-number">7</span><span class="hljs-selector-class">.git</span> clone git@github<span class="hljs-selector-class">.com</span>:xxxx，下载仓库<br><br><span class="hljs-number">8</span><span class="hljs-selector-class">.history</span> 是显示历史的命令<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="（3）-使用git"><a href="#（3）-使用git" class="headerlink" title="（3） 使用git"></a>（3） 使用git</h3><p><strong>使用总结</strong></p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>、从github或者gitee下载代码<br>git clone git@github.com:msclam/blog.git<br><br><span class="hljs-number">2</span>、上传我们的代码到github或者gitee中<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;信息&quot;<br>git pull 从服务器中拉代码<br>git push 推送代码到github或者gitee中<br><br><span class="hljs-number">3</span>、合作发生冲突时<br>别人修改了代码，但是自己没有先pull,自己也修改了代码，然后pull的时候，会要求你先添加到暂存区+本地仓库<span class="hljs-keyword">add</span>和<span class="hljs-keyword">commit</span><br>然后如果pull产生<span class="hljs-keyword">conflict</span>的话，需要处理冲突,head的部分是自己的修改地方，解决冲突之后重新提交<br><br><span class="hljs-number">4</span>、个人新建仓库并往上面推代码<br>创建仓库<br>git init<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;&quot;<br>git remote <span class="hljs-keyword">add</span> origin git@github.com:msclam/blog.git  // 添加远程仓库<br>git push -u origin master// 如果没有推上去 git push <span class="hljs-comment">--set-upstream origin master</span><br><br>已经有就只需要后两句<br><br><span class="hljs-number">5</span>、添加一个新的远程仓库<br>git remote <span class="hljs-keyword">add</span> github https://github.com/msclam/blog.git<br>git remote -v // 查看自己有哪些远程仓库<br>git push github master<br><br><span class="hljs-number">6</span>、回退版本<br>git <span class="hljs-keyword">log</span>之后退出按q<br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD^  //回退到上一个版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD~n //回退到n次以前的版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard commit号  //回退到指定的版本</span><br><br><span class="hljs-number">7</span>、分支<br>git checkout test // 切换分支<br>合并到master<br>git checkout master<br>git merge test<br>git push<br></code></pre></td></tr></table></figure>
-
-<h4 id="日常工作的流程"><a href="#日常工作的流程" class="headerlink" title="日常工作的流程"></a>日常工作的流程</h4><p>上班先git pull然后git add commit，下班git pull，然后解决冲突，最后git push</p>
-<p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png" alt="日常流程"></p>
-<h4 id="关于推送不同的仓库"><a href="#关于推送不同的仓库" class="headerlink" title="关于推送不同的仓库"></a>关于推送不同的仓库</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%8E%A8%E9%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%93%E5%BA%93.png" alt="推送不同的仓库"></p>
-<h4 id="关于冲突"><a href="#关于冲突" class="headerlink" title="关于冲突"></a>关于冲突</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81.png" alt="关于冲突"></p>
-<h4 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%88%86%E6%94%AF.png" alt="关于分支"></p>
-]]></content>
-      <categories>
-        <category>工具相关</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git的配置与使用</tag>
-        <tag>工具</tag>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>When You Are Old</title>
     <url>/2022/11/24/When%20you%20are%20old/</url>
     <content><![CDATA[<center>
@@ -109,6 +75,95 @@
         <tag>English</tag>
         <tag>poetry</tag>
         <tag>literature</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git的使用</title>
+    <url>/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><p>Git的配置、Git命令介绍、Git的具体使用流程</p>
+<span id="more"></span>
+
+<h3 id="（1）-Git的配置"><a href="#（1）-Git的配置" class="headerlink" title="（1） Git的配置"></a>（1） Git的配置</h3><p>在 ~&#x2F;.gitconfig中</p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><code class="hljs autoit">git config --<span class="hljs-keyword">global</span> user.name 你的英文名 lam<br>git config --<span class="hljs-keyword">global</span> user.email 你的邮箱 <br>git config --<span class="hljs-keyword">global</span> push.<span class="hljs-literal">default</span> simple <span class="hljs-meta"># 配置git的默认，默认是Matching,此行为会push所有分支，simple只会push当前分支 </span><br>git config --<span class="hljs-keyword">global</span> core.quotepath <span class="hljs-literal">false</span> <span class="hljs-meta"># 防止文件名变成数字</span><br>git config --<span class="hljs-keyword">global</span> core.editor <span class="hljs-string">&quot;vim&quot;</span> <span class="hljs-meta"># 使用vim编辑提交信息</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="（2）-命令介绍"><a href="#（2）-命令介绍" class="headerlink" title="（2） 命令介绍"></a>（2） 命令介绍</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">1</span><span class="hljs-selector-class">.git</span> init，初始化本地仓库 <span class="hljs-selector-class">.git</span><br><br><span class="hljs-number">2</span><span class="hljs-selector-class">.git</span> status -sb，显示当前所有文件的状态<br><br><span class="hljs-number">3</span><span class="hljs-selector-class">.git</span> log 查看变更历史<br><br><span class="hljs-number">4</span><span class="hljs-selector-class">.git</span> add 文件路径，用来将变动加到暂存区<br><br><span class="hljs-number">5</span><span class="hljs-selector-class">.git</span> commit -m <span class="hljs-string">&quot;信息&quot;</span>，用来正式提交变动，提交至 <span class="hljs-selector-class">.git</span> 仓库<br><br><span class="hljs-number">6</span>.如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m <span class="hljs-string">&#x27;xxx&#x27;</span> 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。<br><br><span class="hljs-number">7</span><span class="hljs-selector-class">.git</span> clone git@github<span class="hljs-selector-class">.com</span>:xxxx，下载仓库<br><br><span class="hljs-number">8</span><span class="hljs-selector-class">.history</span> 是显示历史的命令<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="（3）-使用git"><a href="#（3）-使用git" class="headerlink" title="（3） 使用git"></a>（3） 使用git</h3><p><strong>使用总结</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>、从github或者gitee下载代码<br>git clone git@github.com:msclam/blog.git<br><br><span class="hljs-number">2</span>、上传我们的代码到github或者gitee中<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;信息&quot;<br>git pull 从服务器中拉代码<br>git push 推送代码到github或者gitee中<br><br><span class="hljs-number">3</span>、合作发生冲突时<br>别人修改了代码，但是自己没有先pull,自己也修改了代码，然后pull的时候，会要求你先添加到暂存区+本地仓库<span class="hljs-keyword">add</span>和<span class="hljs-keyword">commit</span><br>然后如果pull产生<span class="hljs-keyword">conflict</span>的话，需要处理冲突,head的部分是自己的修改地方，解决冲突之后重新提交<br><br><span class="hljs-number">4</span>、个人新建仓库并往上面推代码<br>创建仓库<br>git init<br>git <span class="hljs-keyword">add</span> .<br>git <span class="hljs-keyword">commit</span> . -m &quot;&quot;<br>git remote <span class="hljs-keyword">add</span> origin git@github.com:msclam/blog.git  // 添加远程仓库<br>git push -u origin master// 如果没有推上去 git push <span class="hljs-comment">--set-upstream origin master</span><br><br>已经有就只需要后两句<br><br><span class="hljs-number">5</span>、添加一个新的远程仓库<br>git remote <span class="hljs-keyword">add</span> github https://github.com/msclam/blog.git<br>git remote -v // 查看自己有哪些远程仓库<br>git push github master<br><br><span class="hljs-number">6</span>、回退版本<br>git <span class="hljs-keyword">log</span>之后退出按q<br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD^  //回退到上一个版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD~n //回退到n次以前的版本</span><br>git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard commit号  //回退到指定的版本</span><br><br><span class="hljs-number">7</span>、分支<br>git checkout test // 切换分支<br>合并到master<br>git checkout master<br>git merge test<br>git push<br></code></pre></td></tr></table></figure>
+
+<h4 id="日常工作的流程"><a href="#日常工作的流程" class="headerlink" title="日常工作的流程"></a>日常工作的流程</h4><p>上班先git pull然后git add commit，下班git pull，然后解决冲突，最后git push</p>
+<p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%97%A5%E5%B8%B8%E6%B5%81%E7%A8%8B.png" alt="日常流程"></p>
+<h4 id="关于推送不同的仓库"><a href="#关于推送不同的仓库" class="headerlink" title="关于推送不同的仓库"></a>关于推送不同的仓库</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E6%8E%A8%E9%80%81%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BB%93%E5%BA%93.png" alt="推送不同的仓库"></p>
+<h4 id="关于冲突"><a href="#关于冲突" class="headerlink" title="关于冲突"></a>关于冲突</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81.png" alt="关于冲突"></p>
+<h4 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h4><p><img src="/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/%E5%85%B3%E4%BA%8E%E5%88%86%E6%94%AF.png" alt="关于分支"></p>
+]]></content>
+      <categories>
+        <category>工具相关</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git的配置与使用</tag>
+        <tag>工具</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo+fluid部署博客</title>
+    <url>/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p>
+<span id="more"></span>
+
+<h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    	（请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p>
+<p>2、添加标签和分类</p>
+<p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p>
+<p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p>
+<p>在_posts文件中文章.md的头添加</p>
+<figure class="highlight ldif"><table><tr><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure>
+
+<p>3、本地搜索的开启（安装插件）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure>
+
+<p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p>
+<p>5、分页设置</p>
+<p>安装插件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure>
+
+<p>_config.yml的设置</p>
+<figure class="highlight nestedtext"><table><tr><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure>
+
+<p>6、首页显示摘要</p>
+<p>正文以上加上 <!-- more --></p>
+<p>_config.yml的设置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>工具相关</category>
+        <category>hexo博客部署</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -171,6 +226,34 @@
       </tags>
   </entry>
   <entry>
+    <title>单调栈问题总结</title>
+    <url>/2022/11/25/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="单调栈问题总结"><a href="#单调栈问题总结" class="headerlink" title="单调栈问题总结"></a>单调栈问题总结</h2><p>单调递增栈：</p>
+<p>①在一个<a href="https://so.csdn.net/so/search?q=%E9%98%9F%E5%88%97&spm=1001.2101.3001.7020">队列</a>中针对每一个元素从它右边寻找第一个比它小的元素</p>
+<p>②在一个队列中针对每一个元素从它左边寻找第一个比它小的元素</p>
+<p>单调递减栈：</p>
+<p>①在一个队列中针对每一个元素从它右边寻找第一个比它大的元素</p>
+<p>②在一个队列中针对每一个元素从它左边寻找第一个比它大的元素</p>
+<span id="more"></span>
+
+<h3 id="739-每日温度"><a href="#739-每日温度" class="headerlink" title="739 每日温度"></a>739 每日温度</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 <span class="hljs-number">0</span> 来代替。<br><br>例如，给定一个列表 temperatures = [<span class="hljs-number">73</span>, <span class="hljs-number">74</span>, <span class="hljs-number">75</span>, <span class="hljs-number">71</span>, <span class="hljs-number">69</span>, <span class="hljs-number">72</span>, <span class="hljs-number">76</span>, <span class="hljs-number">73</span>]，你的输出应该是 [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]。<br><br>提示：气温 列表长度的范围是 [<span class="hljs-number">1</span>, <span class="hljs-number">30000</span>]。每个气温的值的均为华氏度，都是在 [<span class="hljs-number">30</span>, <span class="hljs-number">100</span>] 范围内的整数。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dailyTemperatures(<span class="hljs-type">int</span>[] temperatures) &#123;<br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[temperatures.length];<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; temperatures.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; temperatures[i] &gt; temperatures[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">preIdx</span> <span class="hljs-operator">=</span> st.pop();<br>            res[preIdx] = i - preIdx;<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;    <br></code></pre></td></tr></table></figure>
+
+<h3 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42 接雨水"></a>42 接雨水</h3><p><strong>重点：其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">当前遍历的元素i，就是凹槽右边的位置，下标为i，对应的高度为height[i]（就是图中的高度<span class="hljs-number">3</span>）。<br><br>此时大家应该可以发现**其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！**<br><br>那么雨水高度是 min(凹槽左边高度, 凹槽右边高度) - 凹槽底部高度，代码为：<span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> min(height[st.top()], height[i]) - height[mid];<br><br>雨水的宽度是 凹槽右边的下标 - 凹槽左边的下标 - <span class="hljs-number">1</span>（因为只求中间宽度），代码为：<span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.top() - <span class="hljs-number">1</span> ;<br><br>当前凹槽雨水的体积就是：h * w。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">trap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>    <span class="hljs-keyword">if</span> (height == <span class="hljs-literal">null</span> || height.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; height.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; height[i] &gt; height[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> st.pop();<br>            <span class="hljs-keyword">if</span> (!st.isEmpty()) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> Math.min(height[i], height[st.peek()]) - height[mid];<br>                <span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.peek() - <span class="hljs-number">1</span>;<br>                sum += h * w;<br>            &#125;<br>        &#125;<br>        st.push(i);<br>    &#125;   <br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84 柱状图中最大的矩形"></a>84 柱状图中最大的矩形</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 <span class="hljs-number">1</span> 。<br><br>求在该柱状图中，能够勾勒出来的矩形的最大面积。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">largestRectangleArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] heights)</span> &#123;<br>    <span class="hljs-type">int</span>[] nHeights = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[heights.length + <span class="hljs-number">2</span>];<br>    System.arraycopy(heights, <span class="hljs-number">0</span>, nHeights, <span class="hljs-number">1</span>, heights.length);<br><br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">area</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nHeights.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; nHeights[i] &lt; nHeights[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> nHeights[st.pop()];<br>            area = Math.max(area, h * (i - st.peek() - <span class="hljs-number">1</span>));<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> area;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="括号题目"><a href="#括号题目" class="headerlink" title="括号题目"></a>括号题目</h3>]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>单调栈问题总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树类型</title>
     <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><p>二叉树类型：满二叉树、完全二叉树、二叉搜索树、平衡二叉树</p>
@@ -205,89 +288,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo+fluid部署博客</title>
-    <url>/2022/11/25/hexo-fluid%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>hexo+github的初始化部署、发布新篇、更换主题、上传创建源码、一些小问题</p>
-<span id="more"></span>
-
-<h3 id="1-hexo-github的部署"><a href="#1-hexo-github的部署" class="headerlink" title="1 hexo + github的部署"></a>1 hexo + github的部署</h3><figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos"><span class="hljs-number">1</span>、进入一个安全的目录，比如 <span class="hljs-built_in">cd</span> ~/Desktop 或者 <span class="hljs-built_in">cd</span> ~/Documents，不要根目录 /<br><span class="hljs-number">2</span>、在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）<br><span class="hljs-number">3</span>、npm install -g hexo-cli，安装 Hexo<br><span class="hljs-number">4</span>、hexo init myBlog<br><span class="hljs-number">5</span>、<span class="hljs-built_in">cd</span> myBlog<br><span class="hljs-number">6</span>、npm i<br><span class="hljs-number">7</span>、hexo new 开博大吉，你会看到一个 <span class="hljs-built_in">md</span> 文件的路径，Windows 的路径中的 \ 需要变成 / 才行哦<br><span class="hljs-number">8</span>、<span class="hljs-built_in">start</span> x.<span class="hljs-built_in">md</span>，编辑这个 <span class="hljs-built_in">md</span> 文件，（Ubuntu 系统用 xdg-open x.<span class="hljs-built_in">md</span> 命令）<br><span class="hljs-number">9</span>、<span class="hljs-built_in">start</span> _config.yml，编辑网站配置<br>    （<span class="hljs-number">1</span>）把第 <span class="hljs-number">6</span> 行的 <span class="hljs-built_in">title</span> 改成标题<br>    （<span class="hljs-number">2</span>）把第 <span class="hljs-number">9</span> 行的 author 改成你的名字<br>    （<span class="hljs-number">3</span>）把最后一行的 <span class="hljs-built_in">type</span> 改成 <span class="hljs-built_in">type</span>: git<br>    （<span class="hljs-number">4</span>）在最后一行后面新增一行，左边与 <span class="hljs-built_in">type</span> 平齐，加上一行 repo: 仓库地址<br>    	（请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 git@github.com: 开头）<br>    （<span class="hljs-number">5</span>）第 <span class="hljs-number">4</span> 步的 repo: 后面有个空格<br><span class="hljs-number">10</span>、npm install hexo-deployer-git --save，安装 git 部署插件<br><span class="hljs-number">11</span>、hexo deploy<br><span class="hljs-number">12</span>、进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接，可以在仓库右边点击edit保存page的部署网址<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-发布新篇"><a href="#2-发布新篇" class="headerlink" title="2 发布新篇"></a>2 发布新篇</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo n name<br>hexo clean &amp;&amp; hexo <span class="hljs-keyword">generate</span> &amp;&amp; hexo deploy<br>或者简写<br>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3 更换主题"></a>3 更换主题</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、https:<span class="hljs-comment">//github.com/hexojs/hexo/wiki/Themes 上面有主题合集</span><br><span class="hljs-number">2</span>、随便找一个主题，进入主题的 GitHub 首页，比如我找的是 https:<span class="hljs-comment">//github.com/iissnan/hexo-theme-fluid</span><br><span class="hljs-number">3</span>、复制它的 SSH 地址或 HTTPS 地址，假设地址为 git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">4</span>、cd themes<br><span class="hljs-number">5</span>、git clone git<span class="hljs-meta">@github</span>.com:iissnan/hexo-theme-fluid.git<br><span class="hljs-number">6</span>、cd ..<br><span class="hljs-number">7</span>、将 _config.yml 的第 <span class="hljs-number">102</span> 行改为 theme: hexo-theme-fluid，保存<br><span class="hljs-number">8</span>、hexo generate<br><span class="hljs-number">9</span>、hexo deploy<br><span class="hljs-number">10</span>、等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 <span class="hljs-number">1</span> 步，重选一个主题。<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="4-上传博客源码"><a href="#4-上传博客源码" class="headerlink" title="4 上传博客源码"></a>4 上传博客源码</h3><p>「你的用户名.github.io」上保存的只是你的博客，并没有保存「生成博客的程序代码」，你需要再创建一个名为 blog-generator 的空仓库，用来保存 myBlog 里面的「生成博客的程序代码」</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1</span>、在 GitHub 创建 blog-generator 空仓库。<br><span class="hljs-number">2</span>、博客发布在了「你的用户名.github.io」而你的「生成博客的程序代码」发布在了 blog-generator。<br><span class="hljs-number">3</span>、每次 hexo deploy 完之后，博客就会更新；然后你还要要 add / commit /push 一下「生成博客的程序代码」，以防万一。这个 blog-generator 就是用来生成博客的程序，而「你的用户名.github.io」仓库就是你的博客页面。<br><span class="hljs-number">4</span>、由于themes中可能含有.git文件，所以add和commit之前先rm -rf .git<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-一些问题"><a href="#5-一些问题" class="headerlink" title="5 一些问题"></a>5 一些问题</h3><p>1、出现显示显示问题bug:  npm i hexo-renderer-swig</p>
-<p>2、添加标签和分类</p>
-<p>hexo new page “category” 和hexo new page “tag”，将会在source中出现同名文件夹&#x2F;index.md</p>
-<p>在index.md的头添加 <code>type: &quot;categories&quot;</code>or <code>type: &quot;tags&quot;</code></p>
-<p>在_posts文件中文章.md的头添加</p>
-<figure class="highlight ldif"><table><tr><td class="code"><pre><code class="hljs ldif"><span class="hljs-attribute">tags</span>:<br><span class="hljs-literal">-</span> blog<br><span class="hljs-literal">-</span> Java  <span class="hljs-comment"># 注意，标签之间是并列</span><br><br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> Fu <br><span class="hljs-literal">-</span> Zi  <span class="hljs-comment"># 注意，分类是父子关系</span><br><br>除非<br><span class="hljs-attribute">categories</span>:<br><span class="hljs-literal">-</span> [A]<br><span class="hljs-literal">-</span> [B]<br></code></pre></td></tr></table></figure>
-
-<p>3、本地搜索的开启（安装插件）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-search --save<br><br>npm install hexo-generator-searchdb --save<br></code></pre></td></tr></table></figure>
-
-<p>4、关于一些修改路径：主题的图片更换是在themes的img中，主要修改站点的_config.yml和themes的_config.yml</p>
-<p>5、分页设置</p>
-<p>安装插件</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">npm install hexo-generator-index --save<br>npm install hexo-generator-archive – save<br>npm install hexo-generator-tag --save<br>npm install hexo-generator-category --save<br>npm install hexo-generator-about --save<br></code></pre></td></tr></table></figure>
-
-<p>_config.yml的设置</p>
-<figure class="highlight nestedtext"><table><tr><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">index_generator</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">path</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-attribute">per_page</span><span class="hljs-punctuation">:</span> <span class="hljs-string">6</span><br>  <span class="hljs-attribute">order_by</span><span class="hljs-punctuation">:</span> <span class="hljs-string">-date</span><br></code></pre></td></tr></table></figure>
-
-<p>6、首页显示摘要</p>
-<p>正文以上加上 <!-- more --></p>
-<p>_config.yml的设置</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">auto_excerpt:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>工具相关</category>
-        <category>hexo博客部署</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单调栈问题总结</title>
-    <url>/2022/11/25/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="单调栈问题总结"><a href="#单调栈问题总结" class="headerlink" title="单调栈问题总结"></a>单调栈问题总结</h2><p>单调递增栈：</p>
-<p>①在一个<a href="https://so.csdn.net/so/search?q=%E9%98%9F%E5%88%97&spm=1001.2101.3001.7020">队列</a>中针对每一个元素从它右边寻找第一个比它小的元素</p>
-<p>②在一个队列中针对每一个元素从它左边寻找第一个比它小的元素</p>
-<p>单调递减栈：</p>
-<p>①在一个队列中针对每一个元素从它右边寻找第一个比它大的元素</p>
-<p>②在一个队列中针对每一个元素从它左边寻找第一个比它大的元素</p>
-<span id="more"></span>
-
-<h3 id="739-每日温度"><a href="#739-每日温度" class="headerlink" title="739 每日温度"></a>739 每日温度</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 <span class="hljs-number">0</span> 来代替。<br><br>例如，给定一个列表 temperatures = [<span class="hljs-number">73</span>, <span class="hljs-number">74</span>, <span class="hljs-number">75</span>, <span class="hljs-number">71</span>, <span class="hljs-number">69</span>, <span class="hljs-number">72</span>, <span class="hljs-number">76</span>, <span class="hljs-number">73</span>]，你的输出应该是 [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]。<br><br>提示：气温 列表长度的范围是 [<span class="hljs-number">1</span>, <span class="hljs-number">30000</span>]。每个气温的值的均为华氏度，都是在 [<span class="hljs-number">30</span>, <span class="hljs-number">100</span>] 范围内的整数。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] dailyTemperatures(<span class="hljs-type">int</span>[] temperatures) &#123;<br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[temperatures.length];<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; temperatures.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; temperatures[i] &gt; temperatures[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">preIdx</span> <span class="hljs-operator">=</span> st.pop();<br>            res[preIdx] = i - preIdx;<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;    <br></code></pre></td></tr></table></figure>
-
-<h3 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42 接雨水"></a>42 接雨水</h3><p><strong>重点：其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">当前遍历的元素i，就是凹槽右边的位置，下标为i，对应的高度为height[i]（就是图中的高度<span class="hljs-number">3</span>）。<br><br>此时大家应该可以发现**其实就是栈顶和栈顶的下一个元素以及要入栈的三个元素来接水！**<br><br>那么雨水高度是 min(凹槽左边高度, 凹槽右边高度) - 凹槽底部高度，代码为：<span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> min(height[st.top()], height[i]) - height[mid];<br><br>雨水的宽度是 凹槽右边的下标 - 凹槽左边的下标 - <span class="hljs-number">1</span>（因为只求中间宽度），代码为：<span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.top() - <span class="hljs-number">1</span> ;<br><br>当前凹槽雨水的体积就是：h * w。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">trap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>    <span class="hljs-keyword">if</span> (height == <span class="hljs-literal">null</span> || height.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; height.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; height[i] &gt; height[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> st.pop();<br>            <span class="hljs-keyword">if</span> (!st.isEmpty()) &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> Math.min(height[i], height[st.peek()]) - height[mid];<br>                <span class="hljs-type">int</span> <span class="hljs-variable">w</span> <span class="hljs-operator">=</span> i - st.peek() - <span class="hljs-number">1</span>;<br>                sum += h * w;<br>            &#125;<br>        &#125;<br>        st.push(i);<br>    &#125;   <br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84 柱状图中最大的矩形"></a>84 柱状图中最大的矩形</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 <span class="hljs-number">1</span> 。<br><br>求在该柱状图中，能够勾勒出来的矩形的最大面积。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">largestRectangleArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] heights)</span> &#123;<br>    <span class="hljs-type">int</span>[] nHeights = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[heights.length + <span class="hljs-number">2</span>];<br>    System.arraycopy(heights, <span class="hljs-number">0</span>, nHeights, <span class="hljs-number">1</span>, heights.length);<br><br>    Stack&lt;Integer&gt; st = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">area</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nHeights.length; i ++ ) &#123;<br>        <span class="hljs-keyword">while</span> (!st.isEmpty() &amp;&amp; nHeights[i] &lt; nHeights[st.peek()]) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">h</span> <span class="hljs-operator">=</span> nHeights[st.pop()];<br>            area = Math.max(area, h * (i - st.peek() - <span class="hljs-number">1</span>));<br>        &#125;<br>        st.push(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> area;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="括号题目"><a href="#括号题目" class="headerlink" title="括号题目"></a>括号题目</h3>]]></content>
-      <categories>
-        <category>刷题相关</category>
-      </categories>
-      <tags>
-        <tag>单调栈问题总结</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>哈夫曼树</title>
     <url>/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
     <content><![CDATA[<p>哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度</p>
@@ -316,9 +316,19 @@
   <entry>
     <title>并查集</title>
     <url>/2022/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2 具体实现"></a>2 具体实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N]; <span class="hljs-comment">// 存放父亲节点（一个集合中的根是唯一的，是否在同一集合相当于是否根相等）</span><br><span class="hljs-type">bool</span> isRoot[N]; <span class="hljs-comment">// 记录每个点是否为某个集合的根节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;  <span class="hljs-comment">// 初始化</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-comment">// 合并a和b所在的集合</span><br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">findFather</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">findFather</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFather</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-comment">// 查找x元素的根节点</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;  <span class="hljs-comment">// 如果不是根节点</span><br>        x = father[x];  <span class="hljs-comment">// 获得父亲节点</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFaterPathCompress</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;  <span class="hljs-comment">//路径压缩</span><br>    <span class="hljs-type">int</span> a = x;  <span class="hljs-comment">// 先存x</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];  <span class="hljs-comment">// x现在为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;    <span class="hljs-comment">// 先存a</span><br>        a = father[a];   <span class="hljs-comment">// 正常找根</span><br>        father[t] = x;  <span class="hljs-comment">// 路径上得都赋值为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="1-并查集的基本概念"><a href="#1-并查集的基本概念" class="headerlink" title="1 并查集的基本概念"></a>1 并查集的基本概念</h3><p>并查集是一种树型的数据结构，用于处理一些不交集的合并及查询问题</p>
+<p>并查集主要包含以下几种基本操作：</p>
+<p>init(s)：建立一个新的并查集，其中包含s个单元素集合<br>union(x, y)：把元素x和元素y所在的集合合并，要求x和y所在的集合不相交，如果相交则不合并<br>find(x)：找到元素x所在的集合的代表，该操作也可以用于判断两个元素是否位于同一个集合，只要将它们各自的代表比较一下就可以了</p>
+<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2 具体实现"></a>2 具体实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N]; <span class="hljs-comment">// 存放父亲节点（一个集合中的根是唯一的，是否在同一集合相当于是否根相等）</span><br><span class="hljs-type">bool</span> isRoot[N]; <span class="hljs-comment">// 记录每个点是否为某个集合的根节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;  <span class="hljs-comment">// 初始化</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-comment">// 合并a和b所在的集合</span><br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">findFather</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">findFather</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFather</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-comment">// 查找x元素的根节点</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;  <span class="hljs-comment">// 如果不是根节点</span><br>        x = father[x];  <span class="hljs-comment">// 获得父亲节点</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFaterPathCompress</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;  <span class="hljs-comment">//路径压缩</span><br>    <span class="hljs-type">int</span> a = x;  <span class="hljs-comment">// 先存x</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];  <span class="hljs-comment">// x现在为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;    <span class="hljs-comment">// 先存a</span><br>        a = father[a];   <span class="hljs-comment">// 正常找根</span><br>        father[t] = x;  <span class="hljs-comment">// 路径上得都赋值为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>并查集</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
   </entry>
   <entry>
     <title>回文串问题总结</title>
