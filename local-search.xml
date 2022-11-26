@@ -8,7 +8,7 @@
     <link href="/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/"/>
     <url>/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/</url>
     
-    <content type="html"><![CDATA[<h3 id="矩阵顺时针-or-逆时针翻转"><a href="#矩阵顺时针-or-逆时针翻转" class="headerlink" title="矩阵顺时针 or 逆时针翻转"></a>矩阵顺时针 or 逆时针翻转</h3><p>顺时针：先主对角线(左上角到右下角这一斜线)、再左右</p><p>顺时针：先次对角线(右上角到左下角这一斜线)，再左右</p><span id="more"></span><p>1 2 3   </p><p>8 9 4 -&gt;  </p><p>7 6 5</p><p>顺时针</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;  <span class="hljs-comment">//按照主对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[j][i]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;  <span class="hljs-comment">// 每一行按照中点进行翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;n/<span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>逆时针</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;  <span class="hljs-comment">// 次对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;n-i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[n-j<span class="hljs-number">-1</span>][n-i<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>; i&lt;n; i++)&#123;  <span class="hljs-comment">// 每行按照中点翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>; j&lt;n/<span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="矩阵顺时针-or-逆时针翻转"><a href="#矩阵顺时针-or-逆时针翻转" class="headerlink" title="矩阵顺时针 or 逆时针翻转"></a>矩阵顺时针 or 逆时针翻转</h3><p>顺时针：先主对角线(左上角到右下角这一斜线)、再左右</p><p>顺时针：先次对角线(右上角到左下角这一斜线)，再左右</p><span id="more"></span><p>1 2 3   </p><p>8 9 4 -&gt;  </p><p>7 6 5</p><p>顺时针</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">//按照主对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[j][i]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每一行按照中点进行翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>逆时针</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 次对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[n-j<span class="hljs-number">-1</span>][n-i<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每行按照中点翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -465,17 +465,6 @@
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>categories</title>
     <link href="/"/>
     <url>/</url>
@@ -492,6 +481,17 @@
     <url>/</url>
     
     <content type="html"><![CDATA[]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JNU &amp; GDUT</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
