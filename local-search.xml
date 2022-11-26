@@ -15,8 +15,6 @@
       
       <category>刷题相关</category>
       
-      <category>矩阵顺时针或逆时针翻转</category>
-      
     </categories>
     
     
@@ -42,8 +40,6 @@
       
       <category>数据结构</category>
       
-      <category>并查集</category>
-      
     </categories>
     
     
@@ -68,8 +64,6 @@
     <categories>
       
       <category>数据结构</category>
-      
-      <category>哈夫曼树</category>
       
     </categories>
     
@@ -178,8 +172,6 @@
     <categories>
       
       <category>工具相关</category>
-      
-      <category>Git</category>
       
     </categories>
     
@@ -293,8 +285,6 @@
       
       <category>数据结构</category>
       
-      <category>二叉树</category>
-      
     </categories>
     
     
@@ -362,9 +352,9 @@
     
     <tags>
       
-      <tag>动态规划</tag>
-      
       <tag>数据结构</tag>
+      
+      <tag>动态规划</tag>
       
       <tag>Leetcode</tag>
       
@@ -399,8 +389,6 @@
     <categories>
       
       <category>算法模板</category>
-      
-      <category>排序算法模板</category>
       
     </categories>
     
@@ -465,7 +453,7 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
@@ -476,7 +464,7 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
