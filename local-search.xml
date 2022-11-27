@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>大数运算</title>
+    <link href="/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/"/>
+    <url>/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/</url>
+    
+    <content type="html"><![CDATA[<p>大数加法、大数乘法、大数减法、大数除法</p><span id="more"></span><p>大数加法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">addStrings</span><span class="hljs-params">(String num1, String num2)</span> &#123;<br>    <span class="hljs-type">char</span>[] s1 = num1.toCharArray();<br>    <span class="hljs-type">char</span>[] s2 = num2.toCharArray();<br><br><br>    <span class="hljs-type">StringBuffer</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">carry</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> s1.length - <span class="hljs-number">1</span>, j = s2.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> || j &gt;= <span class="hljs-number">0</span>; i--, j-- ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> carry;<br>        <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span>) sum += s1[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">if</span> (j &gt;= <span class="hljs-number">0</span>) sum += s2[j] - <span class="hljs-string">&#x27;0&#x27;</span>;<br><br>        str.append(sum % <span class="hljs-number">10</span>);<br>        carry = sum / <span class="hljs-number">10</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (carry != <span class="hljs-number">0</span>) &#123;<br>        str.append(carry);<br>    &#125;<br>    <span class="hljs-keyword">return</span> str.reverse().toString();<br>&#125;<br></code></pre></td></tr></table></figure><p>大数相乘（字符串相乘）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">multiply</span><span class="hljs-params">(String num1, String num2)</span> &#123;<br>    <span class="hljs-keyword">if</span> (num1.equals(<span class="hljs-string">&quot;0&quot;</span>) || num2.equals(<span class="hljs-string">&quot;0&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span>;<br><br>    <span class="hljs-type">char</span>[] str1 = num1.toCharArray();<br>    <span class="hljs-type">char</span>[] str2 = num2.toCharArray();<br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[str1.length + str2.length];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> str1.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i-- ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> str1[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> str2.length - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span>; j -- ) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> str2[j] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> res[i + j + <span class="hljs-number">1</span>] + n1 * n2;<br>            res[i + j + <span class="hljs-number">1</span>] = sum % <span class="hljs-number">10</span>;<br>            res[i + j] += sum / <span class="hljs-number">10</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; res.length; i++ ) &#123;<br><br>        <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> &amp;&amp; res[i] == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>        str.append(res[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> str.toString();<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法模板</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>大数加法</tag>
+      
+      <tag>大数乘法</tag>
+      
+      <tag>大数除法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>矩阵顺时针or逆时针翻转</title>
     <link href="/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/"/>
     <url>/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/</url>
@@ -352,9 +381,9 @@
     
     <tags>
       
-      <tag>数据结构</tag>
-      
       <tag>动态规划</tag>
+      
+      <tag>数据结构</tag>
       
       <tag>Leetcode</tag>
       
@@ -453,11 +482,11 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>JNU &amp; GDUT</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
     
   </entry>
   
@@ -475,11 +504,11 @@
   
   
   <entry>
-    <title>JNU &amp; GDUT</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p>热爱生活，向阳而生。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
