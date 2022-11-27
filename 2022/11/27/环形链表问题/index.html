@@ -16,25 +16,22 @@
   <meta name="author" content="Koiman Lam">
   <meta name="keywords" content="">
   
-    <meta name="description" content="大数加法、大数乘法、大数减法、大数除法">
+    <meta name="description" content="环形链表问题相遇时： slow指针走过的节点数为: x + y， fast指针走过的节点数：x + y + n (y + z)，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。 因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2： 1(x + y) * 2 &#x3D; x +">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数运算">
-<meta property="og:url" content="http://example.com/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:title" content="环形链表问题">
+<meta property="og:url" content="http://example.com/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="大数加法、大数乘法、大数减法、大数除法">
+<meta property="og:description" content="环形链表问题相遇时： slow指针走过的节点数为: x + y， fast指针走过的节点数：x + y + n (y + z)，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。 因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2： 1(x + y) * 2 &#x3D; x +">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-27T08:43:38.000Z">
-<meta property="article:modified_time" content="2022-11-27T08:58:40.667Z">
+<meta property="article:published_time" content="2022-11-27T09:00:28.000Z">
+<meta property="article:modified_time" content="2022-11-27T09:04:34.042Z">
 <meta property="article:author" content="Koiman Lam">
-<meta property="article:tag" content="大数加法">
-<meta property="article:tag" content="大数乘法">
-<meta property="article:tag" content="大数除法">
-<meta property="article:tag" content="大数减法">
+<meta property="article:tag" content="环形链表">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>大数运算 - Blog</title>
+  <title>环形链表问题 - Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="大数运算"></span>
+            <span id="subtitle" data-typed-text="环形链表问题"></span>
           
         </div>
 
@@ -210,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-27 16:43" pubdate>
+        <time datetime="2022-11-27 17:00" pubdate>
           2022年11月27日 下午
         </time>
       </span>
@@ -222,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -233,7 +230,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -271,20 +268,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">大数运算</h1>
+            <h1 style="display: none">环形链表问题</h1>
             
             
               <div class="markdown-body">
                 
-                <p>大数加法、大数乘法、大数减法、大数除法</p>
+                <h3 id="环形链表问题"><a href="#环形链表问题" class="headerlink" title="环形链表问题"></a>环形链表问题</h3><p>相遇时： slow指针走过的节点数为: <code>x + y</code>， fast指针走过的节点数：<code>x + y + n (y + z)</code>，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。</p>
+<p>因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lisp">(<span class="hljs-name">x</span> + y) * <span class="hljs-number">2</span> = x + y + n (<span class="hljs-name">y</span> + z)<br></code></pre></td></tr></table></figure>
+
+<p>两边消掉一个（x+y）: <code>x + y = n (y + z)</code>因为要找环形的入口，那么要求的是x，因为x表示 头结点到 环形入口节点的的距离。所以要求x ，将x单独放在左面：<code>x = n (y + z) - y</code>,当 n为1的时候，公式就化解为 <code>x = z</code>。</p>
+<p>这就意味着，<strong>从头结点出发一个指针，从相遇节点 也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>。</p>
 <span id="more"></span>
 
-<p>大数加法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">addStrings</span><span class="hljs-params">(String num1, String num2)</span> &#123;<br>    <span class="hljs-type">char</span>[] s1 = num1.toCharArray();<br>    <span class="hljs-type">char</span>[] s2 = num2.toCharArray();<br><br><br>    <span class="hljs-type">StringBuffer</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuffer</span>();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">carry</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> s1.length - <span class="hljs-number">1</span>, j = s2.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> || j &gt;= <span class="hljs-number">0</span>; i--, j-- ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> carry;<br>        <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span>) sum += s1[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">if</span> (j &gt;= <span class="hljs-number">0</span>) sum += s2[j] - <span class="hljs-string">&#x27;0&#x27;</span>;<br><br>        str.append(sum % <span class="hljs-number">10</span>);<br>        carry = sum / <span class="hljs-number">10</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (carry != <span class="hljs-number">0</span>) &#123;<br>        str.append(carry);<br>    &#125;<br>    <span class="hljs-keyword">return</span> str.reverse().toString();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>lc141 环形链表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java">给你一个链表的头节点 head ，判断链表中是否有环。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>大数相乘（字符串相乘）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String <span class="hljs-title function_">multiply</span><span class="hljs-params">(String num1, String num2)</span> &#123;<br>    <span class="hljs-keyword">if</span> (num1.equals(<span class="hljs-string">&quot;0&quot;</span>) || num2.equals(<span class="hljs-string">&quot;0&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span>;<br><br>    <span class="hljs-type">char</span>[] str1 = num1.toCharArray();<br>    <span class="hljs-type">char</span>[] str2 = num2.toCharArray();<br>    <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[str1.length + str2.length];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> str1.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i-- ) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> str1[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> str2.length - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span>; j -- ) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> str2[j] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> res[i + j + <span class="hljs-number">1</span>] + n1 * n2;<br>            res[i + j + <span class="hljs-number">1</span>] = sum % <span class="hljs-number">10</span>;<br>            res[i + j] += sum / <span class="hljs-number">10</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; res.length; i++ ) &#123;<br><br>        <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> &amp;&amp; res[i] == <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>        str.append(res[i]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> str.toString();<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<p>lc142 环形链表II</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java">给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <span class="hljs-literal">null</span>。<br><br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 <span class="hljs-number">0</span> 开始）。如果 pos 是 -<span class="hljs-number">1</span>，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。<br>不允许修改 链表<br><br><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">detectCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-comment">// 2*(x+y) = x+y+n*(y+z)</span><br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curA</span> <span class="hljs-operator">=</span> head;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curB</span> <span class="hljs-operator">=</span> slow;<br>            <span class="hljs-keyword">while</span> (curA != curB) &#123;<br>                curA = curA.next;<br>                curB = curB.next;<br>            &#125;<br>            <span class="hljs-keyword">return</span> curA;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -303,7 +304,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" class="category-chain-item">算法模板</a>
+  <a href="/categories/%E5%88%B7%E9%A2%98%E7%9B%B8%E5%85%B3/" class="category-chain-item">刷题相关</a>
   
   
 
@@ -318,13 +319,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%A4%A7%E6%95%B0%E5%8A%A0%E6%B3%95/">#大数加法</a>
-      
-        <a href="/tags/%E5%A4%A7%E6%95%B0%E4%B9%98%E6%B3%95/">#大数乘法</a>
-      
-        <a href="/tags/%E5%A4%A7%E6%95%B0%E9%99%A4%E6%B3%95/">#大数除法</a>
-      
-        <a href="/tags/%E5%A4%A7%E6%95%B0%E5%87%8F%E6%B3%95/">#大数减法</a>
+        <a href="/tags/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">#环形链表</a>
       
     </div>
   
@@ -336,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>大数运算</div>
-      <div>http://example.com/2022/11/27/大数运算/</div>
+      <div>环形链表问题</div>
+      <div>http://example.com/2022/11/27/环形链表问题/</div>
     </div>
     <div class="license-meta">
       
@@ -381,7 +376,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/" title="环形链表问题">
+                      <a href="/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98-1/" title="环形链表问题">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">环形链表问题</span>
                         <span class="visible-mobile">上一篇</span>
@@ -391,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/" title="矩阵顺时针or逆时针翻转">
-                        <span class="hidden-mobile">矩阵顺时针or逆时针翻转</span>
+                      <a href="/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/" title="大数运算">
+                        <span class="hidden-mobile">大数运算</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

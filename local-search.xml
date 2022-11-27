@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>环形链表问题</title>
+    <link href="/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98-1/"/>
+    <url>/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98-1/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>环形链表问题</title>
+    <link href="/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h3 id="环形链表问题"><a href="#环形链表问题" class="headerlink" title="环形链表问题"></a>环形链表问题</h3><p>相遇时： slow指针走过的节点数为: <code>x + y</code>， fast指针走过的节点数：<code>x + y + n (y + z)</code>，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。</p><p>因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2：</p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lisp">(<span class="hljs-name">x</span> + y) * <span class="hljs-number">2</span> = x + y + n (<span class="hljs-name">y</span> + z)<br></code></pre></td></tr></table></figure><p>两边消掉一个（x+y）: <code>x + y = n (y + z)</code>因为要找环形的入口，那么要求的是x，因为x表示 头结点到 环形入口节点的的距离。所以要求x ，将x单独放在左面：<code>x = n (y + z) - y</code>,当 n为1的时候，公式就化解为 <code>x = z</code>。</p><p>这就意味着，<strong>从头结点出发一个指针，从相遇节点 也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>。</p><span id="more"></span><p>lc141 环形链表</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java">给你一个链表的头节点 head ，判断链表中是否有环。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>lc142 环形链表II</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java">给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <span class="hljs-literal">null</span>。<br><br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 <span class="hljs-number">0</span> 开始）。如果 pos 是 -<span class="hljs-number">1</span>，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。<br>不允许修改 链表<br><br><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">detectCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-comment">// 2*(x+y) = x+y+n*(y+z)</span><br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curA</span> <span class="hljs-operator">=</span> head;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curB</span> <span class="hljs-operator">=</span> slow;<br>            <span class="hljs-keyword">while</span> (curA != curB) &#123;<br>                curA = curA.next;<br>                curB = curB.next;<br>            &#125;<br>            <span class="hljs-keyword">return</span> curA;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题相关</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>环形链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>大数运算</title>
     <link href="/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/"/>
     <url>/2022/11/27/%E5%A4%A7%E6%95%B0%E8%BF%90%E7%AE%97/</url>
@@ -484,7 +522,7 @@
   
   
   <entry>
-    <title>categories</title>
+    <title>tags</title>
     <link href="/"/>
     <url>/</url>
     
@@ -506,7 +544,7 @@
   
   
   <entry>
-    <title>tags</title>
+    <title>categories</title>
     <link href="/"/>
     <url>/</url>
     
