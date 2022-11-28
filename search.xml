@@ -133,6 +133,21 @@
       </tags>
   </entry>
   <entry>
+    <title>中文字符串转数字</title>
+    <url>/2022/11/28/%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<p>例子：中文字符串：三千二百万零五十三 —&gt; 数字： 3200053</p>
+<span id="more"></span>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">zhToNumber_2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">test1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;三千二百万零五十三&quot;</span>;<br>        test1 = test1.replace(<span class="hljs-string">&quot;零&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<span class="hljs-comment">//去除所有的零</span><br>        <span class="hljs-type">char</span>[] arr = test1.toCharArray();<br>        System.out.println(recur(arr, <span class="hljs-number">0</span>, arr.length - <span class="hljs-number">1</span>));<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">digit</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;零一二三四五六七八九&quot;</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">unit</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;十廿卅百千万亿&quot;</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span>[] unitVal = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1000</span>, <span class="hljs-number">10000</span>, <span class="hljs-number">100000000</span>&#125;;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">long</span> <span class="hljs-title function_">recur</span><span class="hljs-params">(<span class="hljs-type">char</span>[] arr, <span class="hljs-type">int</span> lo, <span class="hljs-type">int</span> hi)</span> &#123;<br>        <span class="hljs-comment">//递归终止条件：遇到只有一个字符的情况，并且这个字符表示数字，那么可以直接返回这个数字</span><br>        <span class="hljs-keyword">if</span> (lo == hi &amp;&amp; digit.indexOf(arr[lo]) != -<span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> digit.indexOf(arr[lo]);<br>        &#125;<br>        <span class="hljs-comment">//找出arr[lo...hi]中最大的单位，以及最大单位的索引</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">maxUnit</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, maxUnitIdx = -<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> lo; i &lt;= hi; i++) &#123;<br>            <span class="hljs-type">char</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> arr[i];<br>            <span class="hljs-type">int</span> <span class="hljs-variable">curUnit</span> <span class="hljs-operator">=</span> unit.indexOf(cur);<br>            <span class="hljs-keyword">if</span> (curUnit != -<span class="hljs-number">1</span> &amp;&amp; unitVal[curUnit] &gt; maxUnit) &#123;<br>                maxUnit = unitVal[curUnit];<br>                maxUnitIdx = i;<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//以最大的单位为分割点，将字符串分为三个部分，[beforeUnit][maxUnit][afterUnit],返回值为：beforeUnit * maxUnit + afterUnit</span><br>        <span class="hljs-comment">//单位之前如果是空字符串，那么maxUnit应该乘以1</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">beforeUnit</span> <span class="hljs-operator">=</span> lo &gt; maxUnitIdx - <span class="hljs-number">1</span> ? <span class="hljs-number">1</span> : recur(arr, lo, maxUnitIdx - <span class="hljs-number">1</span>);<br>        <span class="hljs-comment">//单位之后如果是空字符串，那么beforeUnit * maxUnit应该加上0</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">afterUnit</span> <span class="hljs-operator">=</span> maxUnitIdx + <span class="hljs-number">1</span> &gt; hi ? <span class="hljs-number">0</span> : recur(arr, maxUnitIdx + <span class="hljs-number">1</span>, hi);<br>        <span class="hljs-comment">//返回值：arr[lo...hi]字符串表示的数值</span><br>        <span class="hljs-keyword">return</span> beforeUnit * maxUnit + afterUnit;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>字符串转数字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git的使用</title>
     <url>/2022/11/25/git%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="Git的安装与配置"><a href="#Git的安装与配置" class="headerlink" title="Git的安装与配置"></a>Git的安装与配置</h2><p>Git的配置、Git命令介绍、Git的具体使用流程</p>
@@ -204,27 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二分法模板</title>
-    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>查找第一个数：l  + r &gt;&gt; 1 ，  查找最后一个数：l + r + 1 &gt;&gt; 1</p>
-<span id="more"></span>
-
-<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>算法模板</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-        <tag>二分法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树类型</title>
     <url>/2022/11/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h3 id="二叉树的总结"><a href="#二叉树的总结" class="headerlink" title="二叉树的总结"></a>二叉树的总结</h3><p>二叉树类型：满二叉树、完全二叉树、二叉搜索树、平衡二叉树</p>
@@ -258,6 +252,27 @@
       </tags>
   </entry>
   <entry>
+    <title>二分法模板</title>
+    <url>/2022/11/25/%E4%BA%8C%E5%88%86%E6%B3%95%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>查找第一个数：l  + r &gt;&gt; 1 ，  查找最后一个数：l + r + 1 &gt;&gt; 1</p>
+<span id="more"></span>
+
+<h4 id="寻找左边第一个x"><a href="#寻找左边第一个x" class="headerlink" title="寻找左边第一个x"></a>寻找左边第一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (arr[mid] &lt; x) l = mid + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> r = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;  <span class="hljs-comment">// l和r都是一样的，因为l = r跳出循环</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="寻找右边最后一个x"><a href="#寻找右边最后一个x" class="headerlink" title="寻找右边最后一个x"></a>寻找右边最后一个x</h4><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 寻找最后一个x</span><br><span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>    <span class="hljs-type">int</span> mid = l + r + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>; (注意改边界问题)<br>    <span class="hljs-keyword">if</span> (arr[mid] &gt; x) r = mid - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span> l = mid;<br>&#125;<br><span class="hljs-keyword">if</span> (arr[l] != x) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">return</span> l;<br></code></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>算法模板</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>二分法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>单调栈问题总结</title>
     <url>/2022/11/25/%E5%8D%95%E8%B0%83%E6%A0%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="单调栈问题总结"><a href="#单调栈问题总结" class="headerlink" title="单调栈问题总结"></a>单调栈问题总结</h2><p>单调递增栈：</p>
@@ -286,31 +301,6 @@
       </tags>
   </entry>
   <entry>
-    <title>哈夫曼树</title>
-    <url>/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
-    <content><![CDATA[<p>哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度</p>
-<p>当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。</p>
-<span id="more"></span>
-
-<h3 id="1-相关名词定义"><a href="#1-相关名词定义" class="headerlink" title="1 相关名词定义"></a>1 相关名词定义</h3><p>路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。图 1 中，从根结点到结点 a 之间的通路就是一条路径。</p>
-<p>路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。图 1 中从根结点到结点 c 的路径长度为 3。</p>
-<p>结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。例如，图 1 中结点 a 的权为 7，结点 b 的权为 5。</p>
-<p>结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。例如，图 1 中结点 b 的带权路径长度为 2 * 5 &#x3D; 10 。</p>
-<p>树的带权路径长度为树中所有叶子结点的带权路径长度之和。通常记作 “WPL” 。例如图 1 中所示的这颗树的带权路径长度为：</p>
-<p><code>WPL = 7 * 1 + 5 * 2 + 2 * 3 + 4 * 3</code></p>
-<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2 例子"></a>2 例子</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> LL;<br>priority_queue&lt;LL, vector&lt;LL&gt;, greater&lt;LL&gt;&gt; q; <span class="hljs-comment">// 小顶堆</span><br><br><span class="hljs-comment">// 求树的带权路径：wpl，所有叶子的带权路径之和（哈夫曼树的非叶子节点的权值之和）</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    LL x, y, tmp;<br>    LL res = <span class="hljs-number">0</span>;<br>    <br>    cin &gt;&gt; n;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ ) &#123;<br>        cin &gt;&gt; tmp;<br>        q.<span class="hljs-built_in">push</span>(tmp);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        x = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        y = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        q.<span class="hljs-built_in">push</span>(x + y);<br>        res += x + y;<br>    &#125;<br><br>    cout &lt;&lt; res &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">1 2 2 3 6</span><br><span class="hljs-comment">30</span><br><span class="hljs-comment">*/</span>   <br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>哈夫曼树</tag>
-        <tag>最优二叉树</tag>
-        <tag>带权路径长度最小</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回文串问题总结</title>
     <url>/2022/11/25/%E5%9B%9E%E6%96%87%E4%B8%B2%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h3 id="回文串总结"><a href="#回文串总结" class="headerlink" title="回文串总结"></a>回文串总结</h3><p>中心扩展 或者 动态规划实现</p>
@@ -336,23 +326,28 @@
       </tags>
   </entry>
   <entry>
-    <title>并查集</title>
-    <url>/2022/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<h3 id="1-并查集的基本概念"><a href="#1-并查集的基本概念" class="headerlink" title="1 并查集的基本概念"></a>1 并查集的基本概念</h3><p>并查集是一种树型的数据结构，用于处理一些不交集的合并及查询问题</p>
-<p>并查集主要包含以下几种基本操作：</p>
-<p>init(s)：建立一个新的并查集，其中包含s个单元素集合<br>union(x, y)：把元素x和元素y所在的集合合并，要求x和y所在的集合不相交，如果相交则不合并<br>find(x)：找到元素x所在的集合的代表，该操作也可以用于判断两个元素是否位于同一个集合，只要将它们各自的代表比较一下就可以了</p>
+    <title>哈夫曼树</title>
+    <url>/2022/11/26/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
+    <content><![CDATA[<p>哈夫曼树的基本概念：路径、路径长度、结点的权、带权路径长度</p>
+<p>当用 n 个结点（都做叶子结点且都有各自的权值）试图构建一棵树时，如果构建的这棵树的带权路径长度最小，称这棵树为“最优二叉树”，有时也叫“赫夫曼树”或者“哈夫曼树”。</p>
 <span id="more"></span>
 
-<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2 具体实现"></a>2 具体实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N]; <span class="hljs-comment">// 存放父亲节点（一个集合中的根是唯一的，是否在同一集合相当于是否根相等）</span><br><span class="hljs-type">bool</span> isRoot[N]; <span class="hljs-comment">// 记录每个点是否为某个集合的根节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;  <span class="hljs-comment">// 初始化</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-comment">// 合并a和b所在的集合</span><br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">findFather</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">findFather</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFather</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-comment">// 查找x元素的根节点</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;  <span class="hljs-comment">// 如果不是根节点</span><br>        x = father[x];  <span class="hljs-comment">// 获得父亲节点</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFaterPathCompress</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;  <span class="hljs-comment">//路径压缩</span><br>    <span class="hljs-type">int</span> a = x;  <span class="hljs-comment">// 先存x</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];  <span class="hljs-comment">// x现在为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;    <span class="hljs-comment">// 先存a</span><br>        a = father[a];   <span class="hljs-comment">// 正常找根</span><br>        father[t] = x;  <span class="hljs-comment">// 路径上得都赋值为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3 最小生成树"></a>3 最小生成树</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N];<br><span class="hljs-type">bool</span> isRoot[N];<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">edge</span> &#123;<br>    <span class="hljs-type">int</span> u;<br>    <span class="hljs-type">int</span> v;<br>    <span class="hljs-type">int</span> cost;<br>&#125;E[N];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(edge x, edge y)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x.cost &lt; y.cost;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-type">int</span> a = x;<br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;<br>        a = father[a];<br>        father[t] = x;<br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">find</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">find</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">kruskal</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> edgeCnt = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-built_in">init</span>(n);<br><br>    <span class="hljs-built_in">sort</span>(E, E + m, cmp);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i ++ ) &#123;<br>        <span class="hljs-type">int</span> fu = <span class="hljs-built_in">find</span>(E[i].u);<br>        <span class="hljs-type">int</span> fv = <span class="hljs-built_in">find</span>(E[i].v);<br>        <span class="hljs-keyword">if</span> (fu != fv) &#123;<br>            father[fu] = fv;<br>            res += E[i].cost;<br>            edgeCnt++;<br>            <span class="hljs-keyword">if</span> (edgeCnt == m - <span class="hljs-number">1</span>) <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (edgeCnt == m - <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-type">int</span> n, m;<br>    <br>    cin &gt;&gt; n &gt;&gt; m;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++ ) &#123;<br>        cin &gt;&gt; E[i].u &gt;&gt; E[i].v &gt;&gt; E[i].cost;   <br>    &#125;<br><br>    cout &lt;&lt; <span class="hljs-built_in">kruskal</span>(n, m);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-number">6</span> <span class="hljs-number">10</span><br><span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-number">0</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span><br><span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span><br><span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span><br><span class="hljs-number">1</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span><br><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span><br><span class="hljs-number">2</span> <span class="hljs-number">5</span> <span class="hljs-number">5</span><br><span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span><br><span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-相关名词定义"><a href="#1-相关名词定义" class="headerlink" title="1 相关名词定义"></a>1 相关名词定义</h3><p>路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。图 1 中，从根结点到结点 a 之间的通路就是一条路径。</p>
+<p>路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。图 1 中从根结点到结点 c 的路径长度为 3。</p>
+<p>结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。例如，图 1 中结点 a 的权为 7，结点 b 的权为 5。</p>
+<p>结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。例如，图 1 中结点 b 的带权路径长度为 2 * 5 &#x3D; 10 。</p>
+<p>树的带权路径长度为树中所有叶子结点的带权路径长度之和。通常记作 “WPL” 。例如图 1 中所示的这颗树的带权路径长度为：</p>
+<p><code>WPL = 7 * 1 + 5 * 2 + 2 * 3 + 4 * 3</code></p>
+<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2 例子"></a>2 例子</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-type">long</span> <span class="hljs-type">long</span> LL;<br>priority_queue&lt;LL, vector&lt;LL&gt;, greater&lt;LL&gt;&gt; q; <span class="hljs-comment">// 小顶堆</span><br><br><span class="hljs-comment">// 求树的带权路径：wpl，所有叶子的带权路径之和（哈夫曼树的非叶子节点的权值之和）</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    LL x, y, tmp;<br>    LL res = <span class="hljs-number">0</span>;<br>    <br>    cin &gt;&gt; n;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ ) &#123;<br>        cin &gt;&gt; tmp;<br>        q.<span class="hljs-built_in">push</span>(tmp);<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (q.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;<br>        x = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        y = q.<span class="hljs-built_in">top</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br><br>        q.<span class="hljs-built_in">push</span>(x + y);<br>        res += x + y;<br>    &#125;<br><br>    cout &lt;&lt; res &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">1 2 2 3 6</span><br><span class="hljs-comment">30</span><br><span class="hljs-comment">*/</span>   <br></code></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>并查集</tag>
+        <tag>哈夫曼树</tag>
+        <tag>最优二叉树</tag>
+        <tag>带权路径长度最小</tag>
       </tags>
   </entry>
   <entry>
@@ -379,6 +374,26 @@
       </tags>
   </entry>
   <entry>
+    <title>并查集</title>
+    <url>/2022/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[<h3 id="1-并查集的基本概念"><a href="#1-并查集的基本概念" class="headerlink" title="1 并查集的基本概念"></a>1 并查集的基本概念</h3><p>并查集是一种树型的数据结构，用于处理一些不交集的合并及查询问题</p>
+<p>并查集主要包含以下几种基本操作：</p>
+<p>init(s)：建立一个新的并查集，其中包含s个单元素集合<br>union(x, y)：把元素x和元素y所在的集合合并，要求x和y所在的集合不相交，如果相交则不合并<br>find(x)：找到元素x所在的集合的代表，该操作也可以用于判断两个元素是否位于同一个集合，只要将它们各自的代表比较一下就可以了</p>
+<span id="more"></span>
+
+<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2 具体实现"></a>2 具体实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N]; <span class="hljs-comment">// 存放父亲节点（一个集合中的根是唯一的，是否在同一集合相当于是否根相等）</span><br><span class="hljs-type">bool</span> isRoot[N]; <span class="hljs-comment">// 记录每个点是否为某个集合的根节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;  <span class="hljs-comment">// 初始化</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123; <span class="hljs-comment">// 合并a和b所在的集合</span><br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">findFather</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">findFather</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFather</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; <span class="hljs-comment">// 查找x元素的根节点</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;  <span class="hljs-comment">// 如果不是根节点</span><br>        x = father[x];  <span class="hljs-comment">// 获得父亲节点</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findFaterPathCompress</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;  <span class="hljs-comment">//路径压缩</span><br>    <span class="hljs-type">int</span> a = x;  <span class="hljs-comment">// 先存x</span><br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];  <span class="hljs-comment">// x现在为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;    <span class="hljs-comment">// 先存a</span><br>        a = father[a];   <span class="hljs-comment">// 正常找根</span><br>        father[t] = x;  <span class="hljs-comment">// 路径上得都赋值为根</span><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-最小生成树"><a href="#3-最小生成树" class="headerlink" title="3 最小生成树"></a>3 最小生成树</h3><figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> father[N];<br><span class="hljs-type">bool</span> isRoot[N];<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">edge</span> &#123;<br>    <span class="hljs-type">int</span> u;<br>    <span class="hljs-type">int</span> v;<br>    <span class="hljs-type">int</span> cost;<br>&#125;E[N];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(edge x, edge y)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x.cost &lt; y.cost;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++ ) &#123;<br>        father[i] = i;<br>        isRoot[i] = <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-type">int</span> a = x;<br>    <span class="hljs-keyword">while</span> (x != father[x]) &#123;<br>        x = father[x];<br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (a != father[a]) &#123;<br>        <span class="hljs-type">int</span> t = a;<br>        a = father[a];<br>        father[t] = x;<br>    &#125;<br>    <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Union</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>    <span class="hljs-type">int</span> fa = <span class="hljs-built_in">find</span>(a);<br>    <span class="hljs-type">int</span> fb = <span class="hljs-built_in">find</span>(b);<br>    <span class="hljs-keyword">if</span> (fa != fb) &#123;<br>        father[fa] = fb;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">kruskal</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> </span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> edgeCnt = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-built_in">init</span>(n);<br><br>    <span class="hljs-built_in">sort</span>(E, E + m, cmp);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i ++ ) &#123;<br>        <span class="hljs-type">int</span> fu = <span class="hljs-built_in">find</span>(E[i].u);<br>        <span class="hljs-type">int</span> fv = <span class="hljs-built_in">find</span>(E[i].v);<br>        <span class="hljs-keyword">if</span> (fu != fv) &#123;<br>            father[fu] = fv;<br>            res += E[i].cost;<br>            edgeCnt++;<br>            <span class="hljs-keyword">if</span> (edgeCnt == m - <span class="hljs-number">1</span>) <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (edgeCnt == m - <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><br>    <span class="hljs-type">int</span> n, m;<br>    <br>    cin &gt;&gt; n &gt;&gt; m;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++ ) &#123;<br>        cin &gt;&gt; E[i].u &gt;&gt; E[i].v &gt;&gt; E[i].cost;   <br>    &#125;<br><br>    cout &lt;&lt; <span class="hljs-built_in">kruskal</span>(n, m);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-number">6</span> <span class="hljs-number">10</span><br><span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">4</span><br><span class="hljs-number">0</span> <span class="hljs-number">4</span> <span class="hljs-number">1</span><br><span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span><br><span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span><br><span class="hljs-number">1</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span><br><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span><br><span class="hljs-number">2</span> <span class="hljs-number">5</span> <span class="hljs-number">5</span><br><span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span><br><span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">3</span><br><span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>打家劫舍问题总结</title>
     <url>/2022/11/25/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="打家劫舍问题总结"><a href="#打家劫舍问题总结" class="headerlink" title="打家劫舍问题总结"></a>打家劫舍问题总结</h2><p>主要类型：线性、环状（两个数组）、树形（res[0]、res[1]存储要、不要的结果）</p>
@@ -400,6 +415,51 @@
       <tags>
         <tag>动态规划</tag>
         <tag>打家劫舍问题总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环形链表问题</title>
+    <url>/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="环形链表问题"><a href="#环形链表问题" class="headerlink" title="环形链表问题"></a>环形链表问题</h3><p>相遇时： slow指针走过的节点数为: <code>x + y</code>， fast指针走过的节点数：<code>x + y + n (y + z)</code>，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。</p>
+<p>因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2：<code>(x + y) * 2 = x + y + n (y + z)</code></p>
+<p>两边消掉一个（x+y）: <code>x + y = n (y + z)</code>因为要找环形的入口，那么要求的是x，因为x表示 头结点到 环形入口节点的的距离。所以要求x ，将x单独放在左面：<code>x = n (y + z) - y</code>,当 n为1的时候，公式就化解为 <code>x = z</code>。</p>
+<p>这就意味着，<strong>从头结点出发一个指针，从相遇节点 也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>。</p>
+<span id="more"></span>
+
+<p>lc141 环形链表</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给你一个链表的头节点 head ，判断链表中是否有环。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>lc142 环形链表II</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <span class="hljs-literal">null</span>。<br><br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 <span class="hljs-number">0</span> 开始）。如果 pos 是 -<span class="hljs-number">1</span>，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。<br>不允许修改 链表<br><br><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">detectCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-comment">// 2*(x+y) = x+y+n*(y+z)</span><br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curA</span> <span class="hljs-operator">=</span> head;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curB</span> <span class="hljs-operator">=</span> slow;<br>            <span class="hljs-keyword">while</span> (curA != curB) &#123;<br>                curA = curA.next;<br>                curB = curB.next;<br>            &#125;<br>            <span class="hljs-keyword">return</span> curA;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>环形链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>矩阵顺时针or逆时针翻转</title>
+    <url>/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/</url>
+    <content><![CDATA[<h3 id="矩阵顺时针-or-逆时针翻转"><a href="#矩阵顺时针-or-逆时针翻转" class="headerlink" title="矩阵顺时针 or 逆时针翻转"></a>矩阵顺时针 or 逆时针翻转</h3><p>顺时针：先主对角线(左上角到右下角这一斜线)、再左右</p>
+<p>顺时针：先次对角线(右上角到左下角这一斜线)，再左右</p>
+<span id="more"></span>
+
+<p>1 2 3   </p>
+<p>8 9 4 -&gt;  </p>
+<p>7 6 5</p>
+<p>顺时针</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">//按照主对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[j][i]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每一行按照中点进行翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>逆时针</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 次对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[n-j<span class="hljs-number">-1</span>][n-i<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每行按照中点翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>刷题相关</category>
+      </categories>
+      <tags>
+        <tag>矩阵翻转</tag>
       </tags>
   </entry>
   <entry>
@@ -475,51 +535,6 @@
       <tags>
         <tag>c++</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>矩阵顺时针or逆时针翻转</title>
-    <url>/2022/11/26/%E7%9F%A9%E9%98%B5%E9%A1%BA%E6%97%B6%E9%92%88or%E9%80%86%E6%97%B6%E9%92%88%E7%BF%BB%E8%BD%AC/</url>
-    <content><![CDATA[<h3 id="矩阵顺时针-or-逆时针翻转"><a href="#矩阵顺时针-or-逆时针翻转" class="headerlink" title="矩阵顺时针 or 逆时针翻转"></a>矩阵顺时针 or 逆时针翻转</h3><p>顺时针：先主对角线(左上角到右下角这一斜线)、再左右</p>
-<p>顺时针：先次对角线(右上角到左下角这一斜线)，再左右</p>
-<span id="more"></span>
-
-<p>1 2 3   </p>
-<p>8 9 4 -&gt;  </p>
-<p>7 6 5</p>
-<p>顺时针</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">//按照主对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[j][i]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每一行按照中点进行翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>逆时针</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 次对角线翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[n-j<span class="hljs-number">-1</span>][n-i<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;  <span class="hljs-comment">// 每行按照中点翻转</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n / <span class="hljs-number">2</span>; j++)&#123;<br>        <span class="hljs-built_in">swap</span>(matrix[i][j], matrix[i][n-j<span class="hljs-number">-1</span>]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题相关</category>
-      </categories>
-      <tags>
-        <tag>矩阵翻转</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环形链表问题</title>
-    <url>/2022/11/27/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="环形链表问题"><a href="#环形链表问题" class="headerlink" title="环形链表问题"></a>环形链表问题</h3><p>相遇时： slow指针走过的节点数为: <code>x + y</code>， fast指针走过的节点数：<code>x + y + n (y + z)</code>，n为fast指针在环内走了n圈才遇到slow指针， （y+z）为 一圈内节点的个数A。</p>
-<p>因为fast指针是一步走两个节点，slow指针一步走一个节点， 所以 fast指针走过的节点数 &#x3D; slow指针走过的节点数 * 2：<code>(x + y) * 2 = x + y + n (y + z)</code></p>
-<p>两边消掉一个（x+y）: <code>x + y = n (y + z)</code>因为要找环形的入口，那么要求的是x，因为x表示 头结点到 环形入口节点的的距离。所以要求x ，将x单独放在左面：<code>x = n (y + z) - y</code>,当 n为1的时候，公式就化解为 <code>x = z</code>。</p>
-<p>这就意味着，<strong>从头结点出发一个指针，从相遇节点 也出发一个指针，这两个指针每次只走一个节点， 那么当这两个指针相遇的时候就是 环形入口的节点</strong>。</p>
-<span id="more"></span>
-
-<p>lc141 环形链表</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给你一个链表的头节点 head ，判断链表中是否有环。<br>    <br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>lc142 环形链表II</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 <span class="hljs-literal">null</span>。<br><br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 <span class="hljs-number">0</span> 开始）。如果 pos 是 -<span class="hljs-number">1</span>，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。<br>不允许修改 链表<br><br><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">detectCycle</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-comment">// 2*(x+y) = x+y+n*(y+z)</span><br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">fast</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">slow</span> <span class="hljs-operator">=</span> head;<br>    <span class="hljs-keyword">while</span> (fast != <span class="hljs-literal">null</span> &amp;&amp; fast.next != <span class="hljs-literal">null</span>) &#123;<br>        fast = fast.next.next;<br>        slow = slow.next;<br>        <span class="hljs-keyword">if</span> (fast == slow) &#123;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curA</span> <span class="hljs-operator">=</span> head;<br>            <span class="hljs-type">ListNode</span> <span class="hljs-variable">curB</span> <span class="hljs-operator">=</span> slow;<br>            <span class="hljs-keyword">while</span> (curA != curB) &#123;<br>                curA = curA.next;<br>                curB = curB.next;<br>            &#125;<br>            <span class="hljs-keyword">return</span> curA;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>刷题相关</category>
-      </categories>
-      <tags>
-        <tag>环形链表</tag>
       </tags>
   </entry>
   <entry>
